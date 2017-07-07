@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "staywme",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
-  }
+  },
+  "engines": {
+    "node" : "v6.10.3"
+  },
 }
+
