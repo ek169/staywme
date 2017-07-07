@@ -1,0 +1,1 @@
+web: gunicorn yoursettings.wsgi --log-file -
