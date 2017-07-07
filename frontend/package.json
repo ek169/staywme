@@ -1,11 +1,12 @@
 {
-  "name": "staywme",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": "v6.10.3"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -19,6 +20,7 @@
   "scripts": {
     "proxy": "http://localhost:8000",
     "start": "react-scripts start",
+    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
