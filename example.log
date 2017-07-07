@@ -1,0 +1,139 @@
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:requests.packages.urllib3.connectionpool:"GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=Add+Your+Location&sensor=false HTTP/1.1" 200 None
+ERROR:django.request:Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 36, in profile
+    formatted_location = Geocoder.geocode(location)
+  File "/Library/Python/2.7/site-packages/pygeocoder.py", line 129, in geocode
+    return GeocoderResult(Geocoder.get_data(params=params))
+  File "/Library/Python/2.7/site-packages/pygeocoder.py", line 212, in get_data
+    raise GeocoderError(response_json['status'], response.url)
+GeocoderError: Error ZERO_RESULTS
+Query: https://maps.google.com/maps/api/geocode/json?language=&region=&bounds=&components=&address=Add+Your+Location&sensor=false
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:requests.packages.urllib3.connectionpool:"GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=Add+Your+Location&sensor=false HTTP/1.1" 200 None
+ERROR:django.request:Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 36, in profile
+    formatted_location = Geocoder.geocode(location)
+  File "/Library/Python/2.7/site-packages/pygeocoder.py", line 129, in geocode
+    return GeocoderResult(Geocoder.get_data(params=params))
+  File "/Library/Python/2.7/site-packages/pygeocoder.py", line 212, in get_data
+    raise GeocoderError(response_json['status'], response.url)
+GeocoderError: Error ZERO_RESULTS
+Query: https://maps.google.com/maps/api/geocode/json?language=&region=&bounds=&components=&address=Add+Your+Location&sensor=false
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:requests.packages.urllib3.connectionpool:"GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=Add+Your+Location&sensor=false HTTP/1.1" 200 None
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:requests.packages.urllib3.connectionpool:"GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=New+York&sensor=false HTTP/1.1" 200 None
+WARNING:django.request:Not Found: /apple-touch-icon-precomposed.png
+WARNING:django.request:Not Found: /apple-touch-icon.png
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:requests.packages.urllib3.connectionpool:"GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=202+Curtis+corner+rd&sensor=false HTTP/1.1" 200 None
+ERROR:django.request:Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 97, in login
+    return JsonResponse({'msg': new_user.as_json})
+  File "/Library/Python/2.7/site-packages/django/http/response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Python/2.7/site-packages/django/core/serializers/json.py", line 121, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <bound method User.as_json of <User: Ethan Kulman>> is not JSON serializable
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:requests.packages.urllib3.connectionpool:"GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=boston&sensor=false HTTP/1.1" 200 None
+WARNING:django.request:Not Found: /images/globe.png
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 19, in index
+    return render(request, "test-index.html", msg)
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: test-index.html
+WARNING:django.request:Not Found: /path/to/font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /src/font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /src/font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /path/to/font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /path/to/font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /font-awesome/css/font-awesome.min.css
+WARNING:django.request:Not Found: /font-awesome/css/font-awesome.min.css
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 19, in index
+    return render(request, "test-index.html", msg)
+  File "/Library/Python/2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Library/Python/2.7/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: test-index.html
+ERROR:django.request:Internal Server Error: /friends/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 118, in friends
+    friend_obj_friends = Friends.objs.get(user_owner=friend_obj)
+  File "/Library/Python/2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 380, in get
+    self.model._meta.object_name
+DoesNotExist: Friends matching query does not exist.
+WARNING:django.request:Not Found: /""
+WARNING:django.request:Not Found: /""
+WARNING:django.request:Not Found: /""
+WARNING:django.request:Not Found: /""
+WARNING:django.request:Not Found: /null
+WARNING:django.request:Not Found: /null
+WARNING:django.request:Not Found: /null
+WARNING:django.request:Not Found: /null
+WARNING:django.request:Not Found: /null
+WARNING:django.request:Not Found: /null
