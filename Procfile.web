@@ -1,2 +1,2 @@
 django: gunicorn path.to.wsgi:application --bind 127.0.0.1:$DJANGO_PORT
-node: cd frontend && npm install && npm start
+node: node ./frontend/src/App.js
