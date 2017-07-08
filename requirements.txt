@@ -13,4 +13,5 @@ pygeocoder==1.2.5
 pytz==2017.2
 requests==2.18.1
 urllib3==1.21.1
+whitenoise==3.3.0
 yarg==0.1.9
