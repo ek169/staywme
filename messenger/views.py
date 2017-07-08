@@ -15,8 +15,7 @@ logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
 
 def index(request):
-    msg = {}
-    return render(request, "test-index.html", msg)
+    return render(request, "index.html")
 
 def profile(request):
     if request.method == 'GET':
