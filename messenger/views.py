@@ -1,21 +1,43 @@
 from __future__ import unicode_literals
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 from utils import chatUtils
 from django.shortcuts import render
 import json
+from django.http import HttpResponse
 from django.http import JsonResponse
 from models import User, Friends, Chat, Message
 from django.db.models import Q
 import logging
 from pygeocoder import Geocoder, GeocoderError
 import time
+from django.views.generic import View
+import os
 
 
 logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
 
-def index(request):
-    return render(request, "index.html")
+class FrontendAppView(View):
+    """
+    Serves the compiled frontend entry point (only works if you have run `yarn
+    run build`).
+    """
+
+    def get(self, request):
+        try:
+            with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
+                return HttpResponse(f.read())
+        except FileNotFoundError:
+            logging.exception('Production build of app not found')
+            return HttpResponse(
+                """
+                This URL is only used when you have built the production
+                version of the app. Visit http://localhost:3000/ instead, or
+                run `yarn run build` to test the production version.
+                """,
+                status=501,
+            )
 
 def profile(request):
     if request.method == 'GET':

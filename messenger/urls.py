@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^', views.FrontendAppView.as_view(), name='index'),
     url('login/', views.login, name='login'),
     url('friends/', views.friends, name='friends'),
     url('profile/', views.profile, name='profile'),
