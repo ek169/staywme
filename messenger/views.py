@@ -1,12 +1,11 @@
 from __future__ import unicode_literals
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
-from utils import chatUtils
-from django.shortcuts import render
+from .utils import chatUtils
 import json
 from django.http import HttpResponse
 from django.http import JsonResponse
-from models import User, Friends, Chat, Message
+from .models import User, Friends, Chat, Message
 from django.db.models import Q
 import logging
 from pygeocoder import Geocoder, GeocoderError
