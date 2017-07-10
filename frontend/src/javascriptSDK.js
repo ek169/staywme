@@ -6,7 +6,7 @@ import Profile from './profile';
 import Messenger from './Messenger';
 import Preview from './Preview';
 import Map from './Map';
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route, Switch } from 'react-router-dom';
 
 
    window.fbAsyncInit = function() {
@@ -106,13 +106,13 @@ class Info extends Component {
     });
   }
 
-  logOrCreateUser(){
+  logOrCreateUser () {
     let _this = this;
     var csrftoken = getCookie('csrftoken');
     FB.api('/me?fields=id,name,email,picture', function(response) {
         $.ajax({
             type: "POST",
-            url: '/login/',
+            url: 'api/login/',
             data: {data : JSON.stringify({'id': response.id, 'location' : response.location,
             'name': response.name, 'email' : response.email,
             'picture_url': response.picture.data.url}), csrfmiddlewaretoken: csrftoken},
@@ -129,13 +129,17 @@ class Info extends Component {
   }
 
   setFriendToMessage = (friendId, e) => {
-        var state = this.state;
-        this.setState(updateFriendToMessage(state, friendId));
+        if(friendId !== this.state.friend_to_message) {
+            var state = this.state;
+            this.setState(updateFriendToMessage(state, friendId));
+        }
     }
 
   setActiveProfile = (profileId, e) => {
-        var state = this.state;
-        this.setState(updateActiveProfile(state, profileId));
+        if (profileId !== this.state.active_profile) {
+            var state = this.state;
+            this.setState(updateActiveProfile(state, profileId));
+        }
     }
 
   messageChange = (e) => {
@@ -154,7 +158,7 @@ class Info extends Component {
         if (receiver_id && message) {
             $.ajax({
             type: "POST",
-            url: '/chat/',
+            url: 'api/chat/',
             data: {data : JSON.stringify({receiver_id : receiver_id, sender_id: sender_id, message: message}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
@@ -170,7 +174,7 @@ class Info extends Component {
         response.data.push(1111111111);
         $.ajax({
             type: "POST",
-            url: '/friends/',
+            url: 'api/friends/',
             data: {data : JSON.stringify({friends : response.data, id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
@@ -190,7 +194,7 @@ class Info extends Component {
     const user = this.state.user;
     $.ajax({
         type: "GET",
-         url: '/profile/',
+         url: 'api/profile/',
          data:  {data: JSON.stringify({id : user.user_id})}, csrfmiddlewaretoken: csrftoken,
          dataType: 'json',
      }).done(function(msg) {
@@ -201,7 +205,7 @@ class Info extends Component {
       });
   }
 
-  render = () => {
+  render () {
     const friends = this.state.friends;
     const user = this.state.user;
     const friend_to_message = this.state.friend_to_message;
@@ -223,16 +227,18 @@ class Info extends Component {
             <div id="jumbotron" className='jumbotron'>
                 <div className="row">
                     <div className="col-md-12">
-                        <Route path="/preview" render={(props) => ((this.requireAuth()) ? (<Redirect to="/profile"/>) : (<Preview {...props} logIn={this.logIn}  /> ))} />
-                        <Route path="/map" render={(props) => ((this.requireAuth()) ? (<Map {...props} setActiveProfile={this.setActiveProfile} friends={friends} /> )
-                        : (<Redirect to="/preview"/>) )} />
-                        <Route path="/profile" render={(props) => ((this.requireAuth()) ? (<Profile {...props} user={user} updateUser={this.updatedUser} logOut={this.logOut}/>)
-                        : (<Redirect to="/preview" />)  )}/>
-                        <Route path="/messenger" render={(props) => ((this.requireAuth()) ? (<Messenger {...props} pThis={this}
-                        message={this.state.message[this.state.message.length-1]} messageChange={this.messageChange}
-                        friend_to_message={friend_to_message} pThis={pThis} uid={user.user_id}
-                        setFriendToMessage={this.setFriendToMessage} sendMessage={this.sendMessage} friends={friends} /> )
-                        : (<Redirect to="/preview"/>))} />
+                        <Switch>
+                            <Route path="/preview" render={(props) => ((this.requireAuth()) ? (<Redirect to="/profile"/>) : (<Preview {...props} logIn={this.logIn}  /> ))} />
+                            <Route path="/map" render={(props) => ((this.requireAuth()) ? (<Map {...props} setActiveProfile={this.setActiveProfile} friends={friends} /> )
+                            : (<Redirect to="/preview"/>) )} />
+                            <Route path="/profile" render={(props) => ((this.requireAuth()) ? (<Profile {...props} user={user} updateUser={this.updatedUser} logOut={this.logOut}/>)
+                            : (<Redirect to="/preview" />)  )}/>
+                            <Route path="/messenger" render={(props) => ((this.requireAuth()) ? (<Messenger {...props} pThis={this}
+                            message={this.state.message[this.state.message.length-1]} messageChange={this.messageChange}
+                            friend_to_message={friend_to_message} pThis={pThis} uid={user.user_id}
+                            setFriendToMessage={this.setFriendToMessage} sendMessage={this.sendMessage} friends={friends} /> )
+                            : (<Redirect to="/preview"/>))} />
+                        </Switch>
                     </div>
                 </div>
             </div>
@@ -252,7 +258,7 @@ class Info extends Component {
 
 class FriendsList extends Component {
 
-    onClick (friendId) {
+    onClick = (friendId, e) => {
         this.props.setFriendToMessage(friendId);
         this.props.setActiveProfile(friendId);
     }
@@ -287,7 +293,7 @@ class FriendsList extends Component {
                       {friend.location}
                   </div>
                   <div className="friendBtnMsg col-md-3 col-sm-3">
-                       <Link to="/messenger" onClick={this.onClick(friend.user_id)}>
+                       <Link to="/messenger" onClick={this.onClick.bind(this, friend.user_id)}>
                             <button className="btn sendButton">
                                  Message
                             </button>

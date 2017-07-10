@@ -44,7 +44,7 @@ class EditField extends Component {
     let _this = this;
     $.ajax({
         type: "POST",
-        url: '/profile/',
+        url: 'api/profile/',
         data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id}), csrfmiddlewaretoken: csrftoken},
         dataType: 'json',
         }).done(function(msg) {
@@ -99,6 +99,7 @@ class EditField extends Component {
 
 class Profile extends Component {
     render () {
+        console.log("continuos rendering in profile**");
         const user = this.props.user;
         if (user.user_id) {
             return (

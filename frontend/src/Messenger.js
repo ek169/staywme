@@ -24,15 +24,13 @@ var csrftoken = getCookie('csrftoken');
 
 class MessageList extends Component {
 
-    componentDidMount () {}
-
     clickHandler (chat) {
         const getChats = this.props.getChats;
         this.props.setFriendToMessage(chat.otherUserId);
         if ((chat.new_message === true) && (chat.otherUserId === chat.lastSenderId)) {
             $.ajax({
                 type: "POST",
-                url: '/viewed/',
+                url: 'api/viewed/',
                 data: {data : JSON.stringify({"chat_id" : chat.id}), csrfmiddlewaretoken: csrftoken},
                 dataType: 'json',
             }).done(function(msg) {
@@ -58,7 +56,7 @@ class MessageList extends Component {
                         <span>{chat.otherUser}</span>
                     </div>
                     <div className="h4 col-md-2 col-sm-2">
-                        {(chat.lastSenderId === chat.otherUserId) && (chat.new_message === true) ? <span className="label label-pill label-primary">1</span> : ""}
+                        {(chat.lastSenderId === chat.otherUserId) && (chat.new_message === true) ? <span className="newMessageIcon label label-pill label-primary">1</span> : ""}
                     </div>
                 </div>
             </div>
@@ -103,7 +101,6 @@ class Chat extends Component {
     }
 
    render () {
-
         let _this = this;
         const sendMessage = this.props.sendMessage;
         const messageChange = this.props.messageChange;
@@ -174,7 +171,7 @@ class Messenger extends Component {
         if (this.props.uid > 0) {
             $.ajax({
                 type: "GET",
-                url: '/allchats/',
+                url: 'api/allchats/',
                 data: {data : JSON.stringify({"uid" : this.props.uid}), csrfmiddlewaretoken: csrftoken},
                 dataType: 'json',
             }).done(function(msg) {

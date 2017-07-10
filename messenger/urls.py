@@ -1,18 +1,22 @@
 from django.conf.urls import url
+from django.views.generic import TemplateView
 
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^', views.FrontendAppView.as_view(), name='index'),
-    url('login/', views.login, name='login'),
-    url('friends/', views.friends, name='friends'),
-    url('profile/', views.profile, name='profile'),
-    url('chat/', views.chat, name='chat'),
-    url('allchats/', views.get_all_chats, name='all_chats'),
-    url('viewed/', views.viewed, name='viewed'),
+    url('api/login/', views.login, name='login'),
+    url('api/friends/', views.friends, name='friends'),
+    url('api/profile/', views.profile, name='profile'),
+    url('api/chat/', views.chat, name='chat'),
+    url('api/allchats/', views.get_all_chats, name='all_chats'),
+    url('api/viewed/', views.viewed, name='viewed'),
+    url(r'^$', views.FrontendAppView.as_view(), name='index'),
+    url(r'^(?:.*)/?$', views.FrontendAppView.as_view(), name='others'),
     ]
+
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

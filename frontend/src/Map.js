@@ -27,7 +27,6 @@ class Map extends Component {
     }
 
     createMap () {
-        const setActiveProfile = this.props.setActiveProfile;
         var lat = 42.361145;
         var lng = -71.057083;
         if (navigator.geolocation) {
@@ -45,6 +44,7 @@ class Map extends Component {
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
         var friends = this.props.friends;
         if (friends && (friends.length > 0)) {
+            const setActiveProfile = this.props.setActiveProfile;
             for (var i = 0; i < friends.length; i++) {
                 var latLng = new google.maps.LatLng(friends[i].latitude,friends[i].longitude);
                 var friendInfo = new google.maps.InfoWindow({

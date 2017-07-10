@@ -141,6 +141,10 @@ html, body {
     max-width: 300px;
 }
 
+.newMessageIcon {
+    float: left;
+}
+
 #messengerContainer {
     height: 360px;
 }
