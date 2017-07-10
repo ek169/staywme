@@ -1,1 +1,1 @@
-web: gunicorn staywme.wsgi:application --log-file -
+web: gunicorn staywme.wsgi --log-file -
