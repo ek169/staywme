@@ -125,6 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
