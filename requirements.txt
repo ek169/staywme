@@ -8,6 +8,7 @@ gunicorn==19.7.1
 idna==2.5
 optional-django==0.1.0
 pipreqs==0.4.9
+psycopg2==2.7.1
 pygeocoder==1.2.5
 pytz==2017.2
 requests==2.18.1
