@@ -34,7 +34,6 @@ class FrontendAppView(View):
                 version of the app. Visit http://localhost:3000/ instead, or
                 run `yarn run build` to test the production version.
                 """,
-                status=501,
             )
 
 def profile(request):
