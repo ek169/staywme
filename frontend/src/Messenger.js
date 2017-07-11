@@ -30,8 +30,9 @@ class MessageList extends Component {
         if ((chat.new_message === true) && (chat.otherUserId === chat.lastSenderId)) {
             $.ajax({
                 type: "POST",
+                headers: {'X-CSRFToken': csrftoken},
                 url: 'api/viewed/',
-                data: {data : JSON.stringify({"chat_id" : chat.id}), csrfmiddlewaretoken: csrftoken},
+                data: {data : JSON.stringify({"chat_id" : chat.id})},
                 dataType: 'json',
             }).done(function(msg) {
                 getChats();
@@ -172,7 +173,8 @@ class Messenger extends Component {
             $.ajax({
                 type: "GET",
                 url: 'api/allchats/',
-                data: {data : JSON.stringify({"uid" : this.props.uid}), csrfmiddlewaretoken: csrftoken},
+                headers: {'X-CSRFToken': csrftoken},
+                data: {data : JSON.stringify({"uid" : this.props.uid})},
                 dataType: 'json',
             }).done(function(msg) {
                 if (msg.chats.length > 0) {

@@ -45,7 +45,8 @@ class EditField extends Component {
     $.ajax({
         type: "POST",
         url: 'api/profile/',
-        data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id}), csrfmiddlewaretoken: csrftoken},
+        headers: {'X-CSRFToken': csrftoken},
+        data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id})},
         dataType: 'json',
         }).done(function(msg) {
             console.log(msg.msg);

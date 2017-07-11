@@ -113,9 +113,10 @@ class Info extends Component {
         $.ajax({
             type: "POST",
             url: 'api/login/',
+            headers: {'X-CSRFToken': csrftoken},
             data: {data : JSON.stringify({'id': response.id, 'location' : response.location,
             'name': response.name, 'email' : response.email,
-            'picture_url': response.picture.data.url}), csrfmiddlewaretoken: csrftoken},
+            'picture_url': response.picture.data.url})},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState({
@@ -159,7 +160,8 @@ class Info extends Component {
             $.ajax({
             type: "POST",
             url: 'api/chat/',
-            data: {data : JSON.stringify({receiver_id : receiver_id, sender_id: sender_id, message: message}), csrfmiddlewaretoken: csrftoken},
+            headers: {'X-CSRFToken': csrftoken},
+            data: {data : JSON.stringify({receiver_id : receiver_id, sender_id: sender_id, message: message})},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState(updateMessage(state, " "));
@@ -175,7 +177,8 @@ class Info extends Component {
         $.ajax({
             type: "POST",
             url: 'api/friends/',
-            data: {data : JSON.stringify({friends : response.data, id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
+            headers: {'X-CSRFToken': csrftoken},
+            data: {data : JSON.stringify({friends : response.data, id: user_data.user_id})},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState({
@@ -195,7 +198,8 @@ class Info extends Component {
     $.ajax({
         type: "GET",
          url: 'api/profile/',
-         data:  {data: JSON.stringify({id : user.user_id})}, csrfmiddlewaretoken: csrftoken,
+         headers: {'X-CSRFToken': csrftoken},
+         data:  {data: JSON.stringify({id : user.user_id})},
          dataType: 'json',
      }).done(function(msg) {
          _this.setState({

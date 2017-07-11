@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
     'webpack_loader',
     'whitenoise.runserver_nostatic',
     'messenger.apps.MessengerConfig',
