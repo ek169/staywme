@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'messenger.middleware.dev_cors_middleware'
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 ROOT_URLCONF = 'staywme.urls'
 
 TEMPLATES = [
@@ -139,9 +141,3 @@ STATICFILES_DIRS = [
     os.path.join(REACT_ROOT, 'build', 'static'),
     os.path.join(REACT_ROOT, 'build')
     ]
-
-CORS_ORIGIN_WHITELIST = (
-    'staywme1.herokuapp.com',
-    'localhost:8000',
-    '127.0.0.1:5000',
-)
