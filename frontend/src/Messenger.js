@@ -22,17 +22,21 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 
 
+$.ajaxSetup({
+    headers: {"X-CSRFToken": csrftoken}
+ });
+
 class MessageList extends Component {
 
     clickHandler (chat) {
+        var csrftoken = getCookie('csrftoken');
         const getChats = this.props.getChats;
         this.props.setFriendToMessage(chat.otherUserId);
         if ((chat.new_message === true) && (chat.otherUserId === chat.lastSenderId)) {
             $.ajax({
                 type: "POST",
-                headers: {'X-CSRFToken': csrftoken},
                 url: 'api/viewed/',
-                data: {data : JSON.stringify({"chat_id" : chat.id})},
+                data: {data : JSON.stringify({"chat_id" : chat.id}), csrfmiddlewaretoken: csrftoken},
                 dataType: 'json',
             }).done(function(msg) {
                 getChats();
@@ -169,12 +173,12 @@ class Messenger extends Component {
 
     getChats = () =>  {
         let _this = this;
+        var csrftoken = getCookie('csrftoken');
         if (this.props.uid > 0) {
             $.ajax({
                 type: "GET",
                 url: 'api/allchats/',
-                headers: {'X-CSRFToken': csrftoken},
-                data: {data : JSON.stringify({"uid" : this.props.uid})},
+                data: {data : JSON.stringify({"uid" : this.props.uid}), csrfmiddlewaretoken: csrftoken},
                 dataType: 'json',
             }).done(function(msg) {
                 if (msg.chats.length > 0) {

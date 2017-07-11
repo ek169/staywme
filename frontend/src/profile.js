@@ -20,6 +20,10 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 
 
+$.ajaxSetup({
+    headers: {"X-CSRFToken": csrftoken}
+ });
+
 class EditField extends Component {
     constructor(props) {
     super(props);
@@ -41,12 +45,12 @@ class EditField extends Component {
    }
 
    saveProfileData (valName, val) {
+   var csrftoken = getCookie('csrftoken');
     let _this = this;
     $.ajax({
         type: "POST",
         url: 'api/profile/',
-        headers: {'X-CSRFToken': csrftoken},
-        data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id})},
+        data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id}), csrfmiddlewaretoken: csrftoken},
         dataType: 'json',
         }).done(function(msg) {
             console.log(msg.msg);

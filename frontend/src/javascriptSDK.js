@@ -44,6 +44,11 @@ import { Link, Redirect, Route, Switch } from 'react-router-dom';
     return cookieValue;
 }
 
+var csrftoken = getCookie('csrftoken');
+
+$.ajaxSetup({
+    headers: {"X-CSRFToken": csrftoken}
+ });
 
 function updateMessage(state, message) {
     var messageArray = state.message.slice()
@@ -113,10 +118,9 @@ class Info extends Component {
         $.ajax({
             type: "POST",
             url: 'api/login/',
-            headers: {'X-CSRFToken': csrftoken},
             data: {data : JSON.stringify({'id': response.id, 'location' : response.location,
             'name': response.name, 'email' : response.email,
-            'picture_url': response.picture.data.url})},
+            'picture_url': response.picture.data.url}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState({
@@ -160,8 +164,7 @@ class Info extends Component {
             $.ajax({
             type: "POST",
             url: 'api/chat/',
-            headers: {'X-CSRFToken': csrftoken},
-            data: {data : JSON.stringify({receiver_id : receiver_id, sender_id: sender_id, message: message})},
+            data: {data : JSON.stringify({receiver_id : receiver_id, sender_id: sender_id, message: message}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState(updateMessage(state, " "));
@@ -172,13 +175,13 @@ class Info extends Component {
 
  getFriends(response, user_data, csrftoken) {
     let _this = this;
+    var csrftoken = getCookie('csrftoken');
     FB.api('/me/friends', function(response) {
         response.data.push(1111111111);
         $.ajax({
             type: "POST",
             url: 'api/friends/',
-            headers: {'X-CSRFToken': csrftoken},
-            data: {data : JSON.stringify({friends : response.data, id: user_data.user_id})},
+            data: {data : JSON.stringify({friends : response.data, id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState({
@@ -198,8 +201,7 @@ class Info extends Component {
     $.ajax({
         type: "GET",
          url: 'api/profile/',
-         headers: {'X-CSRFToken': csrftoken},
-         data:  {data: JSON.stringify({id : user.user_id})},
+         data:  {data: JSON.stringify({id : user.user_id}), csrfmiddlewaretoken: csrftoken},
          dataType: 'json',
      }).done(function(msg) {
          _this.setState({
