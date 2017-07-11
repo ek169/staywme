@@ -28,12 +28,7 @@ class FrontendAppView(View):
             with open(os.path.join(settings.STATIC_ROOT, 'index.html')) as f:
                 return HttpResponse(f.read())
         except IOError:
-            return HttpResponse(
-                """
-                This URL is only used when you have built the production
-                version of the app. Visit http://localhost:3000/ instead, or
-                run `yarn run build` to test the production version.
-                """,
+            return HttpResponse(404
             )
 
 def profile(request):
