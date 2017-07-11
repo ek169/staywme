@@ -129,8 +129,11 @@ STATIC_URL = '/static/'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'frontend')
+STATIC_ROOT = os.path.join(BASE_DIR, 'messenger', 'static')
+
+REACT_ROOT = os.path.join(BASE_DIR, 'frontend')
 
 STATICFILES_DIRS = [
-    os.path.join(STATIC_ROOT, 'build', 'static')
+    os.path.join(REACT_ROOT, 'build', 'static'),
+    os.path.join(REACT_ROOT, 'build')
     ]
