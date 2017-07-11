@@ -996,3 +996,20 @@ Traceback (most recent call last):
   File "/Library/Python/2.7/site-packages/django/contrib/staticfiles/storage.py", line 50, in path
     raise ImproperlyConfigured("You're using the staticfiles app "
 ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 28, in get
+    with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/conf/__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'REACT_APP_DIR'

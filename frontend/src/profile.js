@@ -99,7 +99,6 @@ class EditField extends Component {
 
 class Profile extends Component {
     render () {
-        console.log("continuos rendering in profile**");
         const user = this.props.user;
         if (user.user_id) {
             return (
