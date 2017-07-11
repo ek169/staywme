@@ -18,13 +18,13 @@ import os
 
 logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
-@csrf_exempt
 class FrontendAppView(View):
     """
     Serves the compiled frontend entry point (only works if you have run `yarn
     run build`).
     """
 
+    @csrf_exempt
     def get(self, request):
         try:
             with open(os.path.join(settings.STATIC_ROOT, 'index.html')) as f:
