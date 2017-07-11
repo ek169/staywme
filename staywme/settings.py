@@ -28,7 +28,7 @@ SECRET_KEY = 'e42=cdgm&m-d3gw7(tb#yk62efs6-3fy_sqgw&ld_j0m=yy9mn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["staywme1.herokuapp.com"]
 
 
 # Application definition
