@@ -44,11 +44,6 @@ import { Link, Redirect, Route, Switch } from 'react-router-dom';
     return cookieValue;
 }
 
-var csrftoken = getCookie('csrftoken');
-
-$.ajaxSetup({
-    headers: {"X-CSRFToken": csrftoken}
- });
 
 function updateMessage(state, message) {
     var messageArray = state.message.slice()
@@ -116,6 +111,9 @@ class Info extends Component {
     var csrftoken = getCookie('csrftoken');
     FB.api('/me?fields=id,name,email,picture', function(response) {
         $.ajax({
+            beforeSend: function(request) {
+                request.setRequestHeader('X-CSRFToken': csrftoken);
+            },
             type: "POST",
             url: 'api/login/',
             data: {data : JSON.stringify({'id': response.id, 'location' : response.location,
@@ -162,6 +160,9 @@ class Info extends Component {
         let _this = this;
         if (receiver_id && message) {
             $.ajax({
+            beforeSend: function(request) {
+                request.setRequestHeader('X-CSRFToken': csrftoken);
+            },
             type: "POST",
             url: 'api/chat/',
             data: {data : JSON.stringify({receiver_id : receiver_id, sender_id: sender_id, message: message}), csrfmiddlewaretoken: csrftoken},
@@ -174,11 +175,14 @@ class Info extends Component {
   }
 
  getFriends(response, user_data, csrftoken) {
-    let _this = this;
     var csrftoken = getCookie('csrftoken');
+    let _this = this;
     FB.api('/me/friends', function(response) {
         response.data.push(1111111111);
         $.ajax({
+            beforeSend: function(request) {
+                request.setRequestHeader('X-CSRFToken': csrftoken);
+            },
             type: "POST",
             url: 'api/friends/',
             data: {data : JSON.stringify({friends : response.data, id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
@@ -199,6 +203,9 @@ class Info extends Component {
     const _this = this;
     const user = this.state.user;
     $.ajax({
+        beforeSend: function(request) {
+            request.setRequestHeader('X-CSRFToken': csrftoken);
+        },
         type: "GET",
          url: 'api/profile/',
          data:  {data: JSON.stringify({id : user.user_id}), csrfmiddlewaretoken: csrftoken},

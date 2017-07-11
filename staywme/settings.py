@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'webpack_loader',
     'whitenoise.runserver_nostatic',
     'messenger.apps.MessengerConfig',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -134,5 +136,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'messenger', 'static')
 REACT_ROOT = os.path.join(BASE_DIR, 'frontend')
 
 STATICFILES_DIRS = [
+    os.path.join(REACT_ROOT, 'build', 'static'),
     os.path.join(REACT_ROOT, 'build')
     ]
+
+CORS_ORIGIN_WHITELIST = (
+    'staywme1.herokuapp.com',
+    'localhost:8000',
+    '127.0.0.1:5000',
+)
