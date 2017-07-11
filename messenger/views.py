@@ -24,6 +24,7 @@ class FrontendAppView(View):
     run build`).
     """
 
+    @csrf_exempt
     def get(self, request):
         try:
             with open(os.path.join(settings.STATIC_ROOT, 'index.html')) as f:
@@ -32,6 +33,7 @@ class FrontendAppView(View):
             return HttpResponse(404
             )
 
+@csrf_exempt
 def profile(request):
     if request.method == 'GET':
         time.sleep(1)
@@ -67,6 +69,7 @@ def profile(request):
         return JsonResponse({'msg': 'no uid'})
 
 
+@csrf_exempt
 def login(request):
 
     if request.method == 'POST':
@@ -109,6 +112,7 @@ def login(request):
             friends_list = Friends.objs.create(user_owner=new_user)
             return JsonResponse({'msg': new_user.as_json})
 
+@csrf_exempt
 def friends(request):
     if request.method == 'POST':
         data = json.loads(request.POST.get('data'))
@@ -121,6 +125,7 @@ def friends(request):
         if len(user_owner_friends.users.values_list('user_id', flat=True)) is 0:
             if len(data['friends']) is 0:
                 return JsonResponse({'msg': 'false'})
+        friends_list = []
         try:
             friends_list = data['friends']
         except KeyError:
@@ -137,6 +142,7 @@ def friends(request):
 
         return JsonResponse({'friends': user_owner_friends.as_json()})
 
+@csrf_exempt
 def get_all_chats(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -150,6 +156,7 @@ def get_all_chats(request):
 
         return JsonResponse({'chats': 'none'})
 
+@csrf_exempt
 def chat(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -197,6 +204,7 @@ def chat(request):
             return JsonResponse({'msg': 'success'})
         return JsonResponse({'msg': 'failure'})
 
+@csrf_exempt
 def viewed(request):
     if request.method == 'POST':
         data = json.loads(request.POST.get('data'))
