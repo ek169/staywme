@@ -178,7 +178,6 @@ class Info extends Component {
     var csrftoken = getCookie('csrftoken');
     let _this = this;
     FB.api('/me/friends', function(response) {
-        response.data.push(1111111111);
         $.ajax({
             beforeSend: function(request) {
                 request.setRequestHeader('X-CSRFToken': csrftoken);
@@ -297,7 +296,7 @@ class FriendsList extends Component {
             const listOfFriends = otherFriendsArr.map((friend) =>
                <div className={(activeProfile === friend.user_id ? "activeFriend" : "") + " list-group-item row"} key={friend.email}>
                   <div className="friendPicIcon col-md-3 col-sm-3">
-                      <img className="img-circle" src={((r.test(friend.picture_url) ? (friend.picture_url) : (require("./images/globe.png"))))} alt={require("./images/globe.png")} />
+                      <img className="picSize img-circle" src={((r.test(friend.picture_url) ? (friend.picture_url) : (require("./images/globe.png"))))} alt={require("./images/globe.png")} />
                   </div>
                   <div className="friendListItem col-md-3 col-sm-3 h4">
                       {friend.name}
@@ -323,7 +322,7 @@ class FriendsList extends Component {
             return (
                 <div className="activeFriend list-group-item row">
                   <div className="friendPicIcon col-md-3 col-sm-3">
-                      <img className="img-circle" src={require("./images/globe.png")} />
+                      <img className="picSize img-circle" src={require("./images/globe.png")} />
                   </div>
                   <div className="friendListItem col-md-3 col-sm-3 h4">
                       Your Friends...

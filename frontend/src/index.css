@@ -249,4 +249,25 @@ html, body {
     text-align: center;
 }
 
+.picSize {
+    max-height: 50px;
+    max-width: 50px;
+}
+
+#frontPageDiv {
+    padding-top: 8px;
+    text-align: center;
+    height: 250px;
+}
+
+#frontPageImg {
+    display: block;
+    margin: auto;
+    width: 520px;
+    height: 250px;
+}
+
+#fbLoginDiv {
+    padding-top: 20px;
+}
 

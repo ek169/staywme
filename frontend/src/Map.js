@@ -53,7 +53,10 @@ class Map extends Component {
                 var icon;
                 var r = new RegExp('^(?:[a-z]+:)?//', 'i');
                 if (r.test(friends[i].picture_url)) {
-                    icon = friends[i].picture_url;
+                    icon = {
+                            url: friends[i].picture_url,
+                            scaledSize: new google.maps.Size(50, 50),
+                            };
                 } else {
                     icon = require("./images/globe.png");
                 }

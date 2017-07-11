@@ -20,7 +20,15 @@ class Preview extends Component {
     render () {
         return (
         <div>
-            <button className="fa loginBtn" onClick={this.props.logIn.bind(this)}><i className="fa fa-facebook left fbSize"></i> Continue with facebook</button>
+            <div id="h4 frontPageText">
+                <strong>Need a place to crash? Find a friend (or a friend of a friend) to host you on <em>Stayw/me!</em></strong>
+            </div>
+            <div id="frontPageDiv">
+                <img id="frontPageImg" src={require("./images/frontpageimg.png")} />
+            </div>
+            <div id="fbLoginDiv">
+                <button className="fa loginBtn" onClick={this.props.logIn.bind(this)}><i className="fa fa-facebook left fbSize"></i> Continue with facebook</button>
+            </div>
         </div>
         );
 

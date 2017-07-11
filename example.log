@@ -1013,3 +1013,37 @@ Traceback (most recent call last):
   File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/conf/__init__.py", line 57, in __getattr__
     val = getattr(self._wrapped, name)
 AttributeError: 'Settings' object has no attribute 'REACT_APP_DIR'
+ERROR:django.request:Internal Server Error: /api/friends/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 137, in friends
+    friend_obj_friends = Friends.objs.get(user_owner=friend_obj)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 380, in get
+    self.model._meta.object_name
+DoesNotExist: Friends matching query does not exist.
+ERROR:django.request:Internal Server Error: /api/friends/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 137, in friends
+    friend_obj_friends = Friends.objs.get(user_owner=friend_obj)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 380, in get
+    self.model._meta.object_name
+DoesNotExist: Friends matching query does not exist.
