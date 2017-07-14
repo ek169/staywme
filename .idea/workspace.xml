@@ -2,137 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef38a03a-a5d7-47d3-8b1d-b885889c05e9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.0b48262d.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.0b48262d.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.1ecfde85.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.1ecfde85.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.37f76cff.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.37f76cff.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.3d803cd9.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.3d803cd9.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.6934b6ea.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.6934b6ea.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.6e84a9ed.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.6e84a9ed.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.7fa7e05b.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.7fa7e05b.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.90b24424.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.90b24424.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.93c2f4cf.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.93c2f4cf.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.abe804e5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.abe804e5.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.d58f5ae2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.d58f5ae2.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.e52cff21.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.e52cff21.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.ee309628.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.ee309628.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.fe2e3b56.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/css/main.fe2e3b56.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.051b9c54.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.051b9c54.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.0e33df5e.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.0e33df5e.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.14770997.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.14770997.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.2622f9f2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.2622f9f2.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.3a00b65c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.3a00b65c.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.3ab47f32.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.3ab47f32.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.3deec13b.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.3deec13b.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.4f0eb562.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.4f0eb562.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.78f87ddf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.78f87ddf.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.8a618b3a.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.8a618b3a.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.b4fba24d.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.b4fba24d.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.c0feab12.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.c0feab12.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.d01b5f76.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/js/main.d01b5f76.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.0b48262d.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.0b48262d.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.1ecfde85.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.1ecfde85.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.37f76cff.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.37f76cff.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.3d803cd9.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.3d803cd9.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.6934b6ea.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.6934b6ea.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.6e84a9ed.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.6e84a9ed.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.7fa7e05b.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.7fa7e05b.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.90b24424.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.90b24424.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.93c2f4cf.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.93c2f4cf.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.abe804e5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.abe804e5.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.d58f5ae2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.d58f5ae2.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.e52cff21.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.e52cff21.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.ee309628.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.ee309628.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.fe2e3b56.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/css/main.fe2e3b56.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.051b9c54.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.051b9c54.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.0e33df5e.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.0e33df5e.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.14770997.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.14770997.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.1699540c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.1699540c.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.2622f9f2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.2622f9f2.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.3a00b65c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.3a00b65c.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.3ab47f32.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.3ab47f32.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.3deec13b.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.3deec13b.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.4f0eb562.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.4f0eb562.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.78f87ddf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.78f87ddf.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.8a618b3a.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.8a618b3a.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.b4fba24d.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.b4fba24d.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.c0feab12.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.c0feab12.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.d01b5f76.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/js/main.d01b5f76.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messenger/static/static/media/frontpageimg.eba9f4b0.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/images/globe.png" afterPath="$PROJECT_DIR$/frontend/src/images/globe.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/staywme.iml" afterPath="$PROJECT_DIR$/.idea/staywme.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example.log" afterPath="$PROJECT_DIR$/example.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.js" afterPath="$PROJECT_DIR$/frontend/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/Map.js" afterPath="$PROJECT_DIR$/frontend/src/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/Messenger.js" afterPath="$PROJECT_DIR$/frontend/src/Messenger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/index.css" afterPath="$PROJECT_DIR$/frontend/src/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/javascriptSDK.js" afterPath="$PROJECT_DIR$/frontend/src/javascriptSDK.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/profile.js" afterPath="$PROJECT_DIR$/frontend/src/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger/models.py" afterPath="$PROJECT_DIR$/messenger/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger/static/asset-manifest.json" afterPath="$PROJECT_DIR$/messenger/static/asset-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger/static/index.html" afterPath="$PROJECT_DIR$/messenger/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger/static/service-worker.js" afterPath="$PROJECT_DIR$/messenger/static/service-worker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger/urls.py" afterPath="$PROJECT_DIR$/messenger/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger/views.py" afterPath="$PROJECT_DIR$/messenger/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staywme/settings.py" afterPath="$PROJECT_DIR$/staywme/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -166,7 +36,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="javascriptSDK.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/javascriptSDK.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/staywme/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="203">
@@ -253,7 +133,6 @@
         <option value="$PROJECT_DIR$/staywme/urls.py" />
         <option value="$PROJECT_DIR$/frontend/src/Friends.js" />
         <option value="$PROJECT_DIR$/frontend/src/Map.js" />
-        <option value="$PROJECT_DIR$/frontend/src/javascriptSDK.js" />
         <option value="$PROJECT_DIR$/messenger/models.py" />
         <option value="$PROJECT_DIR$/frontend/src/profile.js" />
         <option value="$PROJECT_DIR$/frontend/src/index.css" />
@@ -263,6 +142,7 @@
         <option value="$PROJECT_DIR$/messenger/urls.py" />
         <option value="$PROJECT_DIR$/messenger/views.py" />
         <option value="$PROJECT_DIR$/staywme/settings.py" />
+        <option value="$PROJECT_DIR$/frontend/src/javascriptSDK.js" />
       </list>
     </option>
   </component>
@@ -523,14 +403,14 @@
   <component name="ToolWindowManager">
     <frame x="-4" y="23" width="1041" height="635" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3113113" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3113113" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3038674" sideWeight="0.5155155" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32780847" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978012" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3038674" sideWeight="0.4844845" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3038674" sideWeight="0.4844845" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -739,14 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/javascriptSDK.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="138" column="33" lean-forward="false" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/Friends.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
@@ -841,6 +713,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/javascriptSDK.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
           <folding />
         </state>
       </provider>
