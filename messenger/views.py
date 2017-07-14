@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from .utils import chatUtils
 import json
@@ -19,6 +20,7 @@ logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
 class FrontendAppView(View):
 
+    @ensure_csrf_cookie()
     def get(self, request):
         try:
             with open(os.path.join(settings.STATIC_ROOT, 'index.html')) as f:
