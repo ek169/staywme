@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
-from django.views.decorators.csrf import ensure_csrf_cookie
 
 from .utils import chatUtils
 import json
@@ -17,6 +16,7 @@ import os
 
 logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
+
 class FrontendAppView(View):
 
     def get(self, request):
@@ -27,7 +27,6 @@ class FrontendAppView(View):
             return HttpResponse(404)
 
 
-@ensure_csrf_cookie
 def profile(request):
     if request.method == 'GET':
         time.sleep(1)
@@ -65,7 +64,6 @@ def profile(request):
         return JsonResponse({'msg': 'no uid'})
 
 
-@ensure_csrf_cookie
 def login(request):
 
     if request.method == 'POST':
@@ -108,7 +106,7 @@ def login(request):
             friends_list = Friends.objs.create(user_owner=new_user)
             return JsonResponse({'msg': new_user.as_json})
 
-@ensure_csrf_cookie
+
 def friends(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -147,7 +145,7 @@ def friends(request):
 
         return JsonResponse({'friends': user_owner_friends.as_json()})
 
-@ensure_csrf_cookie
+
 def get_all_chats(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -161,7 +159,8 @@ def get_all_chats(request):
 
         return JsonResponse({'chats': 'none'})
 
-@ensure_csrf_cookie
+
+
 def chat(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -209,7 +208,7 @@ def chat(request):
             return JsonResponse({'msg': 'success'})
         return JsonResponse({'msg': 'failure'})
 
-@ensure_csrf_cookie
+
 def viewed(request):
     if request.method == 'POST':
         data = json.loads(request.POST.get('data'))
