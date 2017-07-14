@@ -116,12 +116,9 @@ class Info extends Component {
     $.ajaxSetup({
         data: {csrfmiddlewaretoken: csrftoken},
         beforeSend: function(xhr, settings){
-        xhr.setRequestHeader('X-CSRFToken',
-                            "'" + csrftoken + "'");
+            xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            xhr.setRequestHeader('Content-Type', 'text/plain; charset="utf-8"');
     }});
-    $.ajaxSetup({data: {
-     csrfmiddlewaretoken: '{{ csrf_token }}'
-  }});
     document.addEventListener('fb_init', e => this.checkLoginState());
   }
 
