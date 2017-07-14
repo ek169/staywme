@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ["*"]
 
 # Redirects all http requests to https
 SECURE_SSL_REDIRECT = True
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
