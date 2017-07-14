@@ -1,3 +1,214 @@
+/* Styling For Map.js */
+
+#map {
+    height: 320px;
+    margin: 0px;
+}
+
+
+/* Button Styling */
+
+.fbSize {
+    font-size: 20px;
+}
+
+.fbSizeSM {
+    font-size: 15px;
+}
+
+.sendButton {
+    background-color: #3b5998;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: white;
+    padding: 7px;
+    font-size: 14px;
+    border-radius: 7px;
+    border: 1px solid;
+    border-color: #35518d;
+}
+
+.loginBtn {
+    background-color: #3b5998;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 7px;
+    border: 1px solid;
+    border-color: #35518d;
+}
+
+.loginBtn:hover {
+    background-color: #3A66A7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.sendButton:hover {
+    background-color: #3A66A7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+
+/* Styling For Messenger.js */
+
+#chatList {
+    float:right;
+    position: relative;
+    height: 350px;
+    overflow-y:auto;
+    max-width: 300px;
+}
+
+#chatListArea {
+    overflow: auto;
+    max-width: 300px;
+    height: 350px;
+}
+
+#messenger {
+    position: relative;
+    bottom: 0px;
+    float:left;
+    max-width: 300px;
+}
+
+#messageList {
+    float: left;
+    height: 240px;
+    overflow-y: scroll;
+    position: relative;
+    width: 300px;
+    background: white;
+}
+
+.chatPreview:hover {
+    background-color: #eef7fa;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#messageArea {
+    padding: 3px;
+    height: 350px;
+    overflow-x: hidden;
+    max-width: 300px;
+}
+
+.newMessageIcon {
+    float: left;
+}
+
+#messengerContainer {
+    height: 360px;
+}
+
+.message {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.him {
+  background: #eee;
+  float: left;
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  padding-right: 4px;
+  padding-left: 2px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  clear: both;
+}
+
+.me {
+  float: right;
+  background: #0084ff;
+  color: #fff;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  padding-left: 4px;
+  padding-right: 2px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  clear: both;
+}
+
+#bottomOfChatRef {
+    clear: both;
+}
+
+
+/* Styling For Profile.js */
+
+#profileArea {
+    background: white;
+}
+
+#profileName {
+    padding-top: 10px;
+    font-size: 25px;
+    font-family: arial;
+}
+
+.editProfileIcon {
+    padding-top: 7px;
+    padding-left: 0px;
+}
+
+.profileLabel {
+    padding-top: 7px;
+}
+
+#announcementOnProfile {
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px solid;
+    border-radius: 3px;
+    padding-bottom: 15px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.editProfileItemWheel:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #3b5998;
+}
+
+.editProfileItemCheck:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #228B22;
+}
+
+
+/* Styling For Friends.js */
+
+.friendListItem {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.activeFriend {
+    background-color: #eef7fa;
+}
+
+.friendPicIcon {
+    padding-top: 7px;
+    text-align: center;
+}
+
+.friendBtnMsg {
+    padding-top: 9px;
+}
+
+
+/* General Settings For JavascriptSDK.js */
+
 body {
   margin: 0;
   padding: 0;
@@ -53,182 +264,6 @@ html, body {
     padding-top: 25px;
 }
 
-#map {
-    height: 320px;
-    margin: 0px;
-}
-
-.fbSize {
-    font-size: 20px;
-}
-
-.fbSizeSM {
-    font-size: 15px;
-}
-
-.sendButton {
-    background-color: #3b5998;
-    font-family: San Francisco, Segoe UI, Tahoma;
-    color: white;
-    padding: 7px;
-    font-size: 14px;
-    border-radius: 7px;
-    border: 1px solid;
-    border-color: #35518d;
-}
-
-.loginBtn {
-    background-color: #3b5998;
-    font-family: San Francisco, Segoe UI, Tahoma;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 7px;
-    border: 1px solid;
-    border-color: #35518d;
-}
-
-.loginBtn:hover {
-    background-color: #3A66A7;
-}
-
-.sendButton:hover {
-    background-color: #3A66A7;
-}
-
-.activeFriend {
-    background-color: #eef7fa;
-}
-
-#chatList {
-    float:right;
-    position: relative;
-    height: 350px;
-    overflow-y:auto;
-    max-width: 300px;
-}
-
-#chatListArea {
-    overflow: auto;
-    max-width: 300px;
-    height: 350px;
-}
-
-#messenger {
-    position: relative;
-    bottom: 0px;
-    float:left;
-    max-width: 300px;
-}
-
-#messageList {
-    float: left;
-    height: 240px;
-    overflow-y: scroll;
-    position: relative;
-    width: 300px;
-    background: white;
-}
-
-.chatPreview:hover {
-    background-color: #eef7fa;
-}
-
-#messageArea {
-    padding: 3px;
-    height: 350px;
-    overflow-x: hidden;
-    max-width: 300px;
-}
-
-.newMessageIcon {
-    float: left;
-}
-
-#messengerContainer {
-    height: 360px;
-}
-
-.message {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.him {
-  background: #eee;
-  float: left;
-  border-bottom-right-radius: 7px;
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
-  padding-right: 4px;
-  padding-left: 2px;
-  margin-right: 20px;
-  margin-bottom: 5px;
-  clear: both;
-}
-
-.me {
-  float: right;
-  background: #0084ff;
-  color: #fff;
-  border-bottom-left-radius: 7px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  padding-left: 4px;
-  padding-right: 2px;
-  margin-left: 20px;
-  margin-bottom: 5px;
-  clear: both;
-}
-
-#bottomOfChatRef {
-    clear: both;
-}
-
-
-#profileArea {
-    background: white;
-}
-
-#profileName {
-    padding-top: 10px;
-    font-size: 25px;
-    font-family: arial;
-}
-
-.editProfileIcon {
-    padding-top: 7px;
-    padding-left: 0px;
-}
-
-.profileLabel {
-    padding-top: 7px;
-}
-
-#announcementOnProfile {
-    color: black;
-    text-align: center;
-    padding-top: 10px;
-    border: 2px solid;
-    border-radius: 3px;
-    padding-bottom: 15px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.friendListItem {
-    padding-top: 3px;
-    text-align: center;
-}
-
-.friendPicIcon {
-    padding-top: 7px;
-    text-align: center;
-}
-
-.friendBtnMsg {
-    padding-top: 5px;
-}
 
 #mainLogo {
     color: #efefef;
@@ -250,9 +285,12 @@ html, body {
 }
 
 .picSize {
-    max-height: 50px;
-    max-width: 50px;
+    height: 50px;
+    width: 50px;
 }
+
+
+/* For Preview.js */
 
 #frontPageDiv {
     padding-top: 8px;
@@ -269,5 +307,59 @@ html, body {
 
 #fbLoginDiv {
     padding-top: 20px;
+}
+
+
+/* Styling For InfoBar.js */
+
+.infoBar {
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-radius: 5px;
+    border-color: #efefef;
+    text-align: center;
+    position: fixed;
+    right: -165px;
+    width: 165px;
+    height: 250px;
+    transition: right .3s ease-in-out;
+    background-color: #eef7fa;
+}
+
+.infoBarOpen {
+    right: 0px;
+}
+
+.infoBarX {
+    color: #3b5998;
+    float: left;
+    clear: both;
+    margin-left: 3px;
+}
+
+.infoBarX:hover {
+    color: #3A66A7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.infoBarFriendName {
+    margin: 5px;
+}
+
+.infoBarTopDiv {
+    border-bottom: 1px solid;
+    border-color: #efefef;
+
+}
+
+.infoBarMidDiv {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.infoBarInfo {
+    font-size: 12px;
 }
 

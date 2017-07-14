@@ -11,6 +11,7 @@ class User(models.Model):
     name = models.CharField(max_length=32)
     email = models.EmailField(null=True)
     location = models.CharField(null=True, max_length=32)
+    question1 = models.CharField(null=True, max_length=32)
     picture_url = models.CharField(null=True, max_length=175)
     latitude = models.DecimalField(max_digits=10, decimal_places=8)
     longitude = models.DecimalField(max_digits=10, decimal_places=8)
@@ -24,6 +25,7 @@ class User(models.Model):
             email=self.email,
             location=self.location,
             picture=self.picture_url,
+            question1=self.question1,
             user_id=self.user_id,
             latitude=self.latitude,
             longitude=self.longitude,
@@ -52,6 +54,7 @@ class Friends(models.Model):
                 email=f.email,
                 location=f.location,
                 picture_url=f.picture_url,
+                question1=f.question1,
                 latitude=f.latitude,
                 longitude=f.longitude,
             ))

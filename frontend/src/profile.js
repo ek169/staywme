@@ -17,8 +17,6 @@ function getCookie(name) {
     return cookieValue;
 }
 
-var csrftoken = getCookie('csrftoken');
-
 class EditField extends Component {
     constructor(props) {
     super(props);
@@ -30,7 +28,6 @@ class EditField extends Component {
         editing: false,
         val: fieldVal,
     };
-    this.OnClick = this.OnClick
   }
 
    valChange = (e) => {
@@ -43,17 +40,13 @@ class EditField extends Component {
    var csrftoken = getCookie('csrftoken');
     let _this = this;
     $.ajax({
-        beforeSend: function(request) {
-            request.setRequestHeader('X-CSRFToken': csrftoken);
-        },
         type: "POST",
         url: 'api/profile/',
         data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id}), csrfmiddlewaretoken: csrftoken},
         dataType: 'json',
         }).done(function(msg) {
-            console.log(msg.msg);
-            }).fail(function(msg) {
-            });
+        }).fail(function(msg) {
+        });
     }
 
    OnClick = () => {
@@ -77,10 +70,10 @@ class EditField extends Component {
             return (
             <div className="col-md-9">
                 <div className="col-md-10">
-                    <input className="form-control" name={this.props.name} placeholder={"My " + this.props.name + " is..."} type={this.props.name === "email" ? "email" : "text"} onChange={this.valChange} defaultValue={this.state.val}/>
+                    <input className="form-control" name={this.props.name} placeholder={this.props.placeholder} type={this.props.name === "email" ? "email" : "text"} onChange={this.valChange} defaultValue={this.state.val}/>
                 </div>
                 <div className="editProfileIcon col-md-2">
-                    <span onClick={this.OnClick.bind(this)} className="glyphicon glyphicon-ok"></span>
+                    <span onClick={this.OnClick.bind(this)} className="editProfileItemCheck glyphicon glyphicon-ok"></span>
                 </div>
             </div>
                 );
@@ -91,7 +84,7 @@ class EditField extends Component {
                     <input className="form-control" defaultValue={this.state.val} readOnly/>
                 </div>
                 <div className="editProfileIcon col-md-2">
-                    <span onClick={this.OnClick.bind(this)} className="glyphicon glyphicon-cog"></span>
+                    <span onClick={this.OnClick.bind(this)} className="editProfileItemWheel glyphicon glyphicon-cog"></span>
                 </div>
             </div>
             );
@@ -105,32 +98,38 @@ class Profile extends Component {
         const user = this.props.user;
         if (user.user_id) {
             return (
-                <div id="profileArea" className="row well">
-                    <div className="col-md-8 col-sm-8" key={user.email}>
-                        <div className="form-group row">
-                            <div className="form-group col-md-2">
-                                <img className="img-circle" src={user.picture} alt={require("./images/globe.png")}/>
+                <div id="profileArea" className="well">
+                    <div className="row">
+                        <div className="col-md-8 col-sm-8" key={user.email}>
+                            <div className="form-group row">
+                                <div className="form-group col-md-2">
+                                    <img className="img-circle" src={user.picture} alt={require("./images/globe.png")}/>
+                                </div>
+                                <div id="profileName" className="form-group col-md-8">
+                                    <span >{user.name}</span>
+                                </div>
                             </div>
-                            <div id="profileName" className="form-group col-md-8">
-                                <span >{user.name}</span>
+                            <div className="form-group row">
+                                <label className="profileLabel col-md-3 col-form-label">Location</label>
+                                <EditField name="location" updateUser={this.props.updateUser} val={user.location} placeholder="My location is..." id={user.user_id}/>
+                            </div>
+                            <div className="form-group row">
+                                <label className="profileLabel col-md-3 col-form-label">Email</label>
+                                <EditField name="email" updateUser={this.props.updateUser} val={user.email} placeholder="My email is..." id={user.user_id}/>
+                            </div>
+                            <div className="form-group row">
+                                <label className="profileLabel col-md-3 col-form-label">I am...</label>
+                                <EditField name='question1' updateUser={this.props.updateUser} placeholder="willing to host / traveling" val={user.question1} id={user.user_id} />
+                            </div>
+                            <div className="form-group row">
+                                <button onClick={this.props.logOut.bind(this)} className="sendButton"><i className="fa fa-facebook left fbSizeSM"></i> Log Out</button>
                             </div>
                         </div>
-                        <div className="form-group row">
-                            <label className="profileLabel col-md-3 col-form-label">Location</label>
-                            <EditField name="location" updateUser={this.props.updateUser} val={user.location} id={user.user_id}/>
-                        </div>
-                        <div className="form-group row">
-                            <label className="profileLabel col-md-3 col-form-label">Email</label>
-                            <EditField name="email" updateUser={this.props.updateUser} val={user.email} id={user.user_id}/>
-                        </div>
-                        <div className="form-group row">
-                            <button onClick={this.props.logOut.bind(this)} className="sendButton"><i className="fa fa-facebook left fbSizeSM"></i> Log Out</button>
-                        </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                        <div id="announcementOnProfile">
-                            <div className="h4"> Hey There! </div>
-                            <small>Want any new features? Let us know @ dev.staywme@gmail.com</small>
+                        <div className="col-md-4 col-sm-4">
+                            <div id="announcementOnProfile">
+                                <div className="h4"> Hey There! </div>
+                                <small>Want any new features? Let us know @ dev.staywme@gmail.com</small>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from .utils import chatUtils
 import json
@@ -15,25 +15,19 @@ import time
 from django.views.generic import View
 import os
 
-
 logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
 class FrontendAppView(View):
-    """
-    Serves the compiled frontend entry point (only works if you have run `yarn
-    run build`).
-    """
 
-    @csrf_exempt
     def get(self, request):
         try:
             with open(os.path.join(settings.STATIC_ROOT, 'index.html')) as f:
                 return HttpResponse(f.read())
         except IOError:
-            return HttpResponse(404
-            )
+            return HttpResponse(404)
 
-@csrf_exempt
+
+@ensure_csrf_cookie
 def profile(request):
     if request.method == 'GET':
         time.sleep(1)
@@ -62,6 +56,8 @@ def profile(request):
                     user.location = location
             elif data['valName'] == "email":
                 user.email = data['val']
+            elif data['valName'] == "question1":
+                user.question1 = data['val']
             else:
                 return JsonResponse({'msg': 'improper input'})
             user.save()
@@ -69,7 +65,7 @@ def profile(request):
         return JsonResponse({'msg': 'no uid'})
 
 
-@csrf_exempt
+@ensure_csrf_cookie
 def login(request):
 
     if request.method == 'POST':
@@ -112,8 +108,21 @@ def login(request):
             friends_list = Friends.objs.create(user_owner=new_user)
             return JsonResponse({'msg': new_user.as_json})
 
-@csrf_exempt
+@ensure_csrf_cookie
 def friends(request):
+    if request.method == 'GET':
+        data = json.loads(request.GET.get('data'))
+        uid = data['id']
+        try:
+            user_owner = User.objs.get(user_id=uid)
+            user_owner_friends = Friends.objs.get(user_owner=user_owner)
+            friend_id_list = []
+            for uid in user_owner_friends.users.values_list('user_id', flat=True):
+                friend_id_list.append(uid)
+            return JsonResponse({'friends': friend_id_list})
+        except ObjectDoesNotExist:
+            return None
+
     if request.method == 'POST':
         data = json.loads(request.POST.get('data'))
         uid = data['id']
@@ -130,19 +139,15 @@ def friends(request):
             friends_list = data['friends']
         except KeyError:
             return None
+
         for friend_id in friends_list:
             if friend_id not in user_owner_friends.users.values_list('user_id', flat=True):
                 friend_obj = User.objs.get(user_id=int(friend_id))
                 user_owner_friends.add_friend(user_owner, friend_obj)
-                friend_obj_friends = Friends.objs.get(user_owner=friend_obj)
-                for extended_connection_id in friend_obj_friends.users.values_list('user_id', flat=True):
-                    if extended_connection_id is not user_owner.user_id and extended_connection_id not in user_owner_friends.users.values_list('user_id', flat=True):
-                        extended_connection = User.objs.get(user_id=int(extended_connection_id))
-                        user_owner_friends.add_friend(user_owner, extended_connection)
 
         return JsonResponse({'friends': user_owner_friends.as_json()})
 
-@csrf_exempt
+@ensure_csrf_cookie
 def get_all_chats(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -156,7 +161,7 @@ def get_all_chats(request):
 
         return JsonResponse({'chats': 'none'})
 
-@csrf_exempt
+@ensure_csrf_cookie
 def chat(request):
     if request.method == 'GET':
         data = json.loads(request.GET.get('data'))
@@ -204,7 +209,7 @@ def chat(request):
             return JsonResponse({'msg': 'success'})
         return JsonResponse({'msg': 'failure'})
 
-@csrf_exempt
+@ensure_csrf_cookie
 def viewed(request):
     if request.method == 'POST':
         data = json.loads(request.POST.get('data'))
@@ -215,11 +220,4 @@ def viewed(request):
             the_chat.save()
             return JsonResponse({'msg': 'success'})
         return JsonResponse({'msg': 'failure'})
-
-
-
-
-
-
-
 

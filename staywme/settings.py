@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'e42=cdgm&m-d3gw7(tb#yk62efs6-3fy_sqgw&ld_j0m=yy9mn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'messenger.middleware.dev_cors_middleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'messenger.middleware.dev_cors_middleware'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -138,6 +138,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'messenger', 'static')
 REACT_ROOT = os.path.join(BASE_DIR, 'frontend')
 
 STATICFILES_DIRS = [
-    os.path.join(REACT_ROOT, 'build', 'static'),
     os.path.join(REACT_ROOT, 'build')
     ]
+
+

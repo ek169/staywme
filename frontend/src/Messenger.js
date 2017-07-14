@@ -19,8 +19,6 @@ function getCookie(name) {
     return cookieValue;
 }
 
-var csrftoken = getCookie('csrftoken');
-
 class MessageList extends Component {
 
     clickHandler (chat) {
@@ -29,9 +27,6 @@ class MessageList extends Component {
         this.props.setFriendToMessage(chat.otherUserId);
         if ((chat.new_message === true) && (chat.otherUserId === chat.lastSenderId)) {
             $.ajax({
-                beforeSend: function(request) {
-                    request.setRequestHeader('X-CSRFToken': csrftoken);
-                },
                 type: "POST",
                 url: 'api/viewed/',
                 data: {data : JSON.stringify({"chat_id" : chat.id}), csrfmiddlewaretoken: csrftoken},
@@ -52,10 +47,10 @@ class MessageList extends Component {
         chatList = this.props.chats.map((chat) =>
             <div key={chat.id} onClick={() => _this.clickHandler(chat)} className={(friend_to_message === chat.otherUserId ? "activeFriend" : "") + " list-group-item chatPreview"}>
                 <div className="row">
-                    <div className="col-md-3 col-sm-3">
-                        <img className="friendListItem img-circle" src={((r.test(chat.otherUserPic) ? (chat.otherUserPic) : (require("./images/globe.png"))))} alt={require("./images/globe.png")}/>
+                    <div className="friendListItem col-md-3 col-sm-3">
+                        <img className="picSize img-circle" src={((r.test(chat.otherUserPic) ? (chat.otherUserPic) : (require("./images/globe.png"))))} alt={require("./images/globe.png")}/>
                     </div>
-                    <div className="h4 col-md-7 col-sm-7">
+                    <div className="friendListItem h4 col-md-7 col-sm-7">
                         <span>{chat.otherUser}</span>
                     </div>
                     <div className="h4 col-md-2 col-sm-2">
@@ -174,9 +169,6 @@ class Messenger extends Component {
         var csrftoken = getCookie('csrftoken');
         if (this.props.uid > 0) {
             $.ajax({
-                beforeSend: function(request) {
-                    request.setRequestHeader('X-CSRFToken': csrftoken);
-                },
                 type: "GET",
                 url: 'api/allchats/',
                 data: {data : JSON.stringify({"uid" : this.props.uid}), csrfmiddlewaretoken: csrftoken},

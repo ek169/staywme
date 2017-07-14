@@ -45,6 +45,7 @@ class Map extends Component {
         var friends = this.props.friends;
         if (friends && (friends.length > 0)) {
             const setActiveProfile = this.props.setActiveProfile;
+            const changeInfoBarSource = this.props.changeInfoBarSource;
             for (var i = 0; i < friends.length; i++) {
                 var latLng = new google.maps.LatLng(friends[i].latitude,friends[i].longitude);
                 var friendInfo = new google.maps.InfoWindow({
@@ -65,11 +66,13 @@ class Map extends Component {
                     map: map,
                     infowindow: friendInfo,
                     icon: icon,
-                    friend_id: friends[i].user_id
+                    friend_id: friends[i].user_id,
+                    friend: friends[i]
                 });
                 google.maps.event.addListener(friendMarker, 'click', function() {
                     this.infowindow.open(map, this);
                     setActiveProfile(this.friend_id);
+                    changeInfoBarSource(this.friend);
                 });
             }
         }
