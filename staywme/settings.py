@@ -30,6 +30,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+# Redirects all http requests to https
+SECURE_SSL_REDIRECT = True
+
 
 # Application definition
 
