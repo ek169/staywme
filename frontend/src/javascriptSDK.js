@@ -112,6 +112,10 @@ class Info extends Component {
   }
 
   componentDidMount() {
+    $.ajaxSetup({beforeSend: function(xhr, settings){
+        xhr.setRequestHeader('X-CSRFToken',
+                            "'" + csrftoken + "'");
+    }});
     document.addEventListener('fb_init', e => this.checkLoginState());
   }
 
