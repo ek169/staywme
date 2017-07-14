@@ -18,9 +18,9 @@ import os
 logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
 
+@ensure_csrf_cookie
 class FrontendAppView(View):
 
-    @ensure_csrf_cookie
     def get(self, request):
         try:
             with open(os.path.join(settings.STATIC_ROOT, 'index.html')) as f:
