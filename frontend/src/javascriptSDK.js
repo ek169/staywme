@@ -112,13 +112,6 @@ class Info extends Component {
   }
 
   componentDidMount() {
-    var csrftoken = getCookie('csrftoken');
-    $.ajaxSetup({
-        data: {csrfmiddlewaretoken: csrftoken},
-        beforeSend: function(xhr, settings){
-            xhr.setRequestHeader('X-CSRFToken', csrftoken);
-            xhr.setRequestHeader('Content-Type', 'text/plain; charset="utf-8"');
-    }});
     document.addEventListener('fb_init', e => this.checkLoginState());
   }
 
