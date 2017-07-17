@@ -30,6 +30,7 @@ def getChatMessageJson(user_id, chat_list):
 
         json_chatlist.append(dict(id=chat.id,
                                   new_message=chat.new_message,
+                                  updated=chat.updated,
                                   lastSenderId=last_sender_id,
                                   otherUser=other_user_name,
                                   otherUserPic=other_user_pic,

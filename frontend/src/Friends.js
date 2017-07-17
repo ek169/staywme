@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class Friends extends Component {
 
     onClick = (friendId, e) => {
+        e.preventDefault();
         this.props.setFriendToMessage(friendId);
         this.props.setActiveProfile(friendId);
     }

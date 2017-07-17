@@ -85,6 +85,19 @@ class MessageList extends Component {
 }
 
 class Chat extends Component {
+/*
+    var archivedChats = [];
+        var currentDate = moment();
+        console.log(currentDate);
+        for(var c = 0; c < chats.length; c++) {
+            var chatAge = moment(chats[c].updated);
+            var daysOld = currentDate.diff(chatAge, 'days');
+            if(daysOld => 7) {
+                archivedChats.push(chats.pop(c));
+            }
+
+        }*/
+
 
     submitHandler = (e) => {
         this.props.sendMessage(e);

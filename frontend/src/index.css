@@ -64,7 +64,7 @@
 #chatListArea {
     overflow: auto;
     max-width: 300px;
-    height: 350px;
+    height: 315px;
 }
 
 #messenger {
@@ -183,6 +183,10 @@
     cursor: pointer;
     cursor: hand;
     color: #228B22;
+}
+
+.warnField {
+    border: solid 5px #ffb2b2;
 }
 
 
@@ -325,6 +329,18 @@ html, body {
     height: 250px;
     transition: right .3s ease-in-out;
     background-color: #eef7fa;
+}
+
+.infoBarWarning {
+    background-color: #ffb2b2;
+    border-color: #ff6666;
+    color: #7f0000;
+}
+
+.infoWarningTxt {
+    font-size: 15px;
+    display: inline;
+    margin: 5px;
 }
 
 .infoBarOpen {

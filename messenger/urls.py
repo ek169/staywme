@@ -12,6 +12,7 @@ urlpatterns = [
     url('api/chat/', views.chat, name='chat'),
     url('api/allchats/', views.get_all_chats, name='all_chats'),
     url('api/viewed/', views.viewed, name='viewed'),
+    # comment out these two below when in development
     url(r'^$', views.FrontendAppView.as_view(), name='index'),
     url(r'^(?:.*)/?$', views.FrontendAppView.as_view(), name='others'),
     ]

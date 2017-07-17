@@ -1,5 +1,6 @@
 /*global FB*/
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 var r = new RegExp('^(?:[a-z]+:)?//', 'i');
 
@@ -32,6 +33,24 @@ getMutualFriends () {
 }
 
 render () {
+    if(this.props.dataIsMissing) {
+        return (
+            <div className="infoBarWarning infoBar infoBarOpen">
+                <div className="row">
+                    <strong>Hey!</strong>
+                </div>
+                <div className="infoWarningTxt row">
+                    You're missing
+                    either your <strong>email</strong> or <strong>location</strong>. You won't
+                    be visible to your network.
+                </div>
+                <div className="row">
+                    <Link to="/profile">Update Info</Link>
+                </div>
+            </div>
+
+        );
+    }
     const friend = this.props.infoBarData;
     const toggleInfoBar = this.props.toggleInfoBar;
     this.getMutualFriends();

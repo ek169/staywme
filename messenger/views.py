@@ -107,7 +107,8 @@ def login(request):
                                         longitude=longitude)
             time.sleep(1)
             friends_list = Friends.objs.create(user_owner=new_user)
-            return JsonResponse({'msg': new_user.as_json})
+            the_user_obj = User.objs.get(user_id=uid)
+            return JsonResponse({'msg': the_user_obj.as_json()})
 
 
 def friends(request):
@@ -131,7 +132,7 @@ def friends(request):
             user_owner = User.objs.get(user_id=uid)
             user_owner_friends = Friends.objs.get(user_owner=user_owner)
         except ObjectDoesNotExist:
-            return None
+            return JsonResponse({'msg': 'No user or friendlist exists'})
         if len(user_owner_friends.users.values_list('user_id', flat=True)) is 0:
             if len(data['friends']) is 0:
                 return JsonResponse({'msg': 'false'})
@@ -139,7 +140,7 @@ def friends(request):
         try:
             friends_list = data['friends']
         except KeyError:
-            return None
+            return JsonResponse({'msg': 'There were no friends in the data you sent'})
 
         for friend_id in friends_list:
             if friend_id not in user_owner_friends.users.values_list('user_id', flat=True):

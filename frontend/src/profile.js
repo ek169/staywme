@@ -81,7 +81,7 @@ class EditField extends Component {
             return (
             <div className="col-md-9">
                 <div className="col-md-10">
-                    <input className="form-control" defaultValue={this.state.val} readOnly/>
+                    <input className={(this.state.val === "" ? "warnField" : "") + " form-control"} defaultValue={this.state.val} readOnly/>
                 </div>
                 <div className="editProfileIcon col-md-2">
                     <span onClick={this.OnClick.bind(this)} className="editProfileItemWheel glyphicon glyphicon-cog"></span>

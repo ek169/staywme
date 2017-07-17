@@ -11,6 +11,7 @@ import InfoBar from './InfoBar'
 import { Link, Redirect, Route, Switch } from 'react-router-dom';
 
 
+
    window.fbAsyncInit = function() {
    FB.init({
      appId      : '1838987513085965',
@@ -94,8 +95,7 @@ function binarySearch(uid, friends_list) {
 }
 
 
-
-class Info extends Component {
+class Base extends Component {
 
   constructor() {
     super();
@@ -124,6 +124,7 @@ class Info extends Component {
 
   toggleInfoBar = () => {
     this.setState(updateInfoBar(this.state.infoBarIsOpen));
+    return false;
   }
 
   changeInfoBarSource = (friend, e) => {
@@ -131,6 +132,7 @@ class Info extends Component {
         this.toggleInfoBar();
     }
     this.setState(updateInfoBarSource(friend));
+    e.preventDefault();
   }
 
   checkLoginState () {
@@ -218,46 +220,29 @@ class Info extends Component {
     }
   }
 
-  findNewFriends(friends_from_db) {
-    const this_user_id = this.state.user.user_id;
-    var updated_user_friends = [];
-    updated_user_friends.concat(friends_from_db);
-    for(var i = 0; i < friends_from_db.length; i++) {
-        FB.api('/' + friends_from_db[i] + '/friends', function(response) {
-            for(var o = 0; o < response.data; o++) {
-                if(response.data[o] !== this_user_id) {
-                    updated_user_friends = binarySearch(response.data[o], friends_from_db);
-                }
-            }
-        });
-    }
-    return updated_user_friends;
-  }
-
- getFriends(response, user_data, csrftoken) {
+  findNewFriends(friendsFB, friendsFromDB, thisUserId) {
     var csrftoken = getCookie('csrftoken');
     let _this = this;
-    var friends_from_db = [];
-    $.ajax({
-        type: 'GET',
-        url: 'api/friends/',
-        data: {data : JSON.stringify({id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
-        dataType: 'json',
-    }).done(function(msg) {
-        friends_from_db.push(msg.friends);
-        friends_from_db.sort();
-    }).fail(function(msg) {
-        console.log('no friends in db');
-    });
-    FB.api('/me/friends', function(response) {
-        for(var i = 0; i < response.data.length; i++) {
-            friends_from_db = binarySearch(response.data[i], friends_from_db);
+    var batch = [];
+    for(var i = 0; i < friendsFB.length; i++) {
+        var idString = '' + friendsFB[i].id + '/friends';
+        batch.push({method: 'GET', relative_url: idString});
+
+    FB.api('/', 'POST', { batch }, function(response) {
+        var allFriends = [];
+        for(var f = 0; f < response.length; f++) {
+            var theData = JSON.parse(response[f].body);
+            allFriends = allFriends.concat(theData.data);
         }
-        var updated_user_friends = _this.findNewFriends(friends_from_db);
+        for(var x = 0; x < allFriends.length; x++) {
+            if('' + allFriends[x].id !== '' + thisUserId) {
+                friendsFromDB = binarySearch(allFriends[x].id, friendsFromDB);
+            }
+        }
         $.ajax({
             type: "POST",
             url: 'api/friends/',
-            data: {data : JSON.stringify({friends : updated_user_friends, id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
+            data: {data : JSON.stringify({friends : friendsFromDB, id: thisUserId}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
             _this.setState({
@@ -266,7 +251,32 @@ class Info extends Component {
         }).fail(function(msg) {
             console.log("could not load friends");
         });
-      return false;
+    });
+
+    }
+  }
+
+ getFriends(response, user_data, csrftoken) {
+    var csrftoken = getCookie('csrftoken');
+    const thisUserId = user_data.user_id;
+    let _this = this;
+    var friendsFromDB = [];
+    $.ajax({
+        type: 'GET',
+        url: 'api/friends/',
+        data: {data : JSON.stringify({id: user_data.user_id}), csrfmiddlewaretoken: csrftoken},
+        dataType: 'json',
+    }).done(function(msg) {
+        friendsFromDB = friendsFromDB.concat(msg.friends);
+        friendsFromDB.sort();
+    }).fail(function(msg) {
+        console.log('no friends in db');
+    });
+    FB.api('/me/friends', function(response) {
+        for(var i = 0; i < response.data.length; i++) {
+            friendsFromDB = binarySearch(response.data[i].id, friendsFromDB);
+        }
+        _this.findNewFriends(response.data, friendsFromDB, thisUserId);
     });
   }
 
@@ -306,7 +316,7 @@ class Info extends Component {
                     </div>
                 </div>
                 <div>
-                    {typeof this.state.user.user_id !== 'undefined' ? (<InfoBar infoBarIsOpen={this.state.infoBarIsOpen} toggleInfoBar={this.toggleInfoBar} uid={user.user_id} infoBarData={this.state.infoBarData}/>) : ""}
+                    {typeof this.state.user.user_id !== 'undefined' ? (<InfoBar infoBarIsOpen={this.state.infoBarIsOpen} toggleInfoBar={this.toggleInfoBar} uid={user.user_id} infoBarData={this.state.infoBarData} dataIsMissing={(user.email && user.location) ? false : true}/>) : ""}
                 </div>
             </div>
             <div id="jumbotron" className='jumbotron'>
@@ -344,4 +354,4 @@ class Info extends Component {
 
 
 
-export default Info;
+export default Base;

@@ -26,11 +26,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e42=cdgm&m-d3gw7(tb#yk62efs6-3fy_sqgw&ld_j0m=yy9mn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# !!! MAKE SURE TO SWITCH APP ID IN JAVASCRIPT SDK BEFORE DEPLOYING
 DEBUG = False
+
 
 ALLOWED_HOSTS = ["*"]
 
-# Redirects all http requests to https
+# Redirects all http requests to https !!! UNCOMMENT WHEN DEPLOYING
 SECURE_SSL_REDIRECT = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -136,6 +138,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+#UNCOMMENT THIS WHEN BUILDING STATIC AND COLLECT AS WELL AS DEPLOYMENT
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'messenger', 'static')
 

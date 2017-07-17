@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './jumbotron-narrow.css';
-import Info from './javascriptSDK';
+import Base from './Main';
 import createBrowserHistory from 'history/createBrowserHistory';
 import {
   BrowserRouter as Router,
@@ -14,7 +14,7 @@ class App extends Component {
         return (
         <Router history={history}>
             <div>
-                <Route path="/" component={Info}/>
+                <Route path="/" component={Base}/>
             </div>
         </Router>
         )

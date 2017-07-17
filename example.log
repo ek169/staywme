@@ -1627,3 +1627,347 @@ Traceback (most recent call last):
   File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/middleware/csrf.py", line 177, in _get_token
     cookie_token = request.COOKIES[settings.CSRF_COOKIE_NAME]
 AttributeError: 'FrontendAppView' object has no attribute 'COOKIES'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=&sensor=false HTTP/1.1" 400 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=boston&sensor=false HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=boston&sensor=false HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=&sensor=false HTTP/1.1" 400 None
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /apple-touch-icon-precomposed.png
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /apple-touch-icon.png
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /apple-touch-icon-precomposed.png
+WARNING:django.request:Not Found: /apple-touch-icon.png
+WARNING:django.request:Not Found: /static/js/index.js.map
+WARNING:django.request:Not Found: /static/js/index.js.map
+WARNING:django.request:Not Found: /static/js/index.js.map
+WARNING:django.request:Not Found: /static/js/index.js.map
+WARNING:django.request:Not Found: /static/js/index.js.map
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=Boston&sensor=false HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=&sensor=false HTTP/1.1" 400 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): maps.google.com
+DEBUG:urllib3.connectionpool:https://maps.google.com:443 "GET /maps/api/geocode/json?language=&region=&bounds=&components=&address=Boston&sensor=false HTTP/1.1" 200 None
+ERROR:django.request:Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 76, in login
+    user = User.objs.get(user_id=uid)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such table: messenger_user
+ERROR:django.request:Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 76, in login
+    user = User.objs.get(user_id=uid)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such table: messenger_user
+ERROR:django.request:Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 76, in login
+    user = User.objs.get(user_id=uid)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such table: messenger_user
+ERROR:django.request:Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 76, in login
+    user = User.objs.get(user_id=uid)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such table: messenger_user
+ERROR:django.request:Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 110, in login
+    return JsonResponse({'msg': new_user.as_json})
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/http/response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/serializers/json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <bound method User.as_json of <User: Ethan Kulman>> is not JSON serializable
+ERROR:django.request:Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 111, in login
+    return JsonResponse({'msg': the_user_obj.as_json})
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/http/response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/serializers/json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <bound method User.as_json of <User: Ethon Koolman>> is not JSON serializable
+ERROR:django.request:Internal Server Error: /api/friends/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view messenger.views.friends didn't return an HttpResponse object. It returned None instead.
+ERROR:django.request:Internal Server Error: /api/friends/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view messenger.views.friends didn't return an HttpResponse object. It returned None instead.
+ERROR:django.request:Internal Server Error: /api/friends/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view messenger.views.friends didn't return an HttpResponse object. It returned None instead.
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /static/admin/css/login.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/login.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/dashboard.css
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/cancel.js
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/dashboard.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/cancel.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+ERROR:django.request:Internal Server Error: /api/friends/
+Traceback (most recent call last):
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/views.py", line 148, in friends
+    user_owner_friends.add_friend(user_owner, friend_obj)
+  File "/Users/ethan/Desktop/staywme/staywme/messenger/models.py", line 46, in add_friend
+    friends.users.add(new_friend)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 934, in add
+    self._add_items(self.source_field_name, self.target_field_name, *objs)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 1103, in _add_items
+    for obj_id in new_ids
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 443, in bulk_create
+    ids = self._batched_insert(objs_without_pk, fields, batch_size)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1099, in _batched_insert
+    self._insert(item, fields=fields, using=self.db)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Users/ethan/Desktop/staywme/staywme/venv/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/dashboard.css
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/cancel.js
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/css/dashboard.css
+WARNING:django.request:Not Found: /static/admin/css/base.css
+WARNING:django.request:Not Found: /static/admin/js/jquery.init.js
+WARNING:django.request:Not Found: /static/admin/js/core.js
+WARNING:django.request:Not Found: /static/admin/css/changelists.css
+WARNING:django.request:Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING:django.request:Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING:django.request:Not Found: /static/admin/js/urlify.js
+WARNING:django.request:Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING:django.request:Not Found: /static/admin/js/prepopulate.min.js
+WARNING:django.request:Not Found: /static/admin/js/actions.min.js
