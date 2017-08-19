@@ -22,8 +22,6 @@ def get_page_data(user_id, access_token):
         except (ValueError, KeyError, TypeError):
             return "JSON error"
 
-    except IOError, e:
-        if hasattr(e, 'code'):
-            return e.code
-        elif hasattr(e, 'reason'):
-            return e.reason
+    except IOError:
+        return "JSON error"
+
