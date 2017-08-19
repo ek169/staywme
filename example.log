@@ -5791,3 +5791,7 @@ DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): graph.facebook.c
 DEBUG:urllib3.connectionpool:https://graph.facebook.com:443 "GET /v2.9/101619003841762?appsecret_proof=12e6ff00e6690827bd958a49f0da4c52a0693f2827350ba92f812ab237b57f09&access_token=EAAG575HV6mQBAI9ICu2vRd4fJAVZAIcWf0V41WRG9HDqFeZBGZAL4ot2QGRDbD2wVfAhD9nmqH7TDxo7cfCgexoixmZAx2itsPA5GZBwNLksywhj1u4wrYnlIyQg8M8pxAMHWT2oRU5oZAErngM4NbIW8EmXxkn7A1xoROWodXsZCT4G4mrtEOEhY5STkVTGKhvG1u2nBWr2AZDZD&fields=context.fields%28mutual_friends.fields%28picture.width%2840%29.height%2840%29%29%29 HTTP/1.1" 200 226
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): graph.facebook.com
 DEBUG:urllib3.connectionpool:https://graph.facebook.com:443 "GET /v2.9/108939996377065?appsecret_proof=c156c748bad38e3cb1b6ea1297eacd8ca487a4af8f3f0080697912d3ea9ab34c&access_token=EAAG575HV6mQBAMeYF0FVHiK0nkKwSWRZC0tv9HhVOfhB9lfcpaJotETOmZBg54R2bLi06aMn3U7mtBddKyzZB958KnR37v2ZBAqDWG0UZAkjUBUDjtvc3KHhEGYkNCjK3AhB2tKusaNL8ruqVQ4T0OrAgajNiSiiZC0rStj7ZAmUZC5zGg931L7qzHLTqWnhjZAkG0YZBAoVxmlgZDZD&fields=context.fields%28mutual_friends.fields%28picture.width%2840%29.height%2840%29%29%29 HTTP/1.1" 200 459
+WARNING:django.security.csrf:Forbidden (CSRF cookie not set.): /api/login/
+WARNING:django.security.csrf:Forbidden (CSRF cookie not set.): /api/login/
+WARNING:django.security.csrf:Forbidden (CSRF cookie not set.): /api/login/
+WARNING:django.security.csrf:Forbidden (CSRF cookie not set.): /api/login/

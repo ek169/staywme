@@ -16,7 +16,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
    window.fbAsyncInit = function() {
    FB.init({
-     appId      : '1838987513085965',
+     appId      : '485913571748452',
      cookie     : true,
 
      xfbml      : true,

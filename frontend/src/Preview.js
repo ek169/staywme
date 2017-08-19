@@ -67,7 +67,7 @@ class Preview extends Component {
                                 <i className="left fa fa-facebook fbSizeMd"></i>
                                 Share
                             </a>
-                            <a className="twitterShareBtn" href="https://www.stayw.me">
+                            <a className="twitterShareBtn" href="https://twitter.com/intent/tweet?text=Never pay for an accomodation again. Stay with a friend on - https://www.stayw.me -">
                                 <i className="twitterLogo fa fa-twitter"></i>
                                 Tweet
                             </a>
