@@ -1,4 +1,3 @@
-/*global FB*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,57 +5,28 @@ var r = new RegExp('^(?:[a-z]+:)?//', 'i');
 
 class InfoBar extends Component {
 
-getMutualFriends () {
-    const friendId = this.props.infoBarData.user_id;
-    var contextId;
-    FB.api(
-        "/" + friendId,
-        {
-            "fields": "context.fields(all_mutual_friends)",
-
-        },
-        function (response) {
-            if (response && !response.error) {
-                contextId = response.context.id;
-                FB.api(
-                    "/" + contextId + "/mutual_friends",
-                    function (response) {
-                        if (response && !response.error) {
-                            // looks like it's returning an array but won't know until
-                            // test users try it out
-                        }
-                    }
-                );
-            }
-    }
-  );
-}
-
 render () {
     if(this.props.dataIsMissing) {
         return (
-            <div className="infoBarWarning infoBar infoBarOpen">
-                <div className="row">
-                    <strong>Hey!</strong>
-                </div>
-                <div className="infoWarningTxt row">
+            <div className="row infoBarWarning infoBar infoBarOpen">
+                <div className="infoWarningTxt">
                     You're missing
                     either your <strong>email</strong> or <strong>location</strong>. You won't
                     be visible to your network.
-                </div>
-                <div className="row">
-                    <Link to="/profile">Update Info</Link>
+                    <div className="">
+                        <Link to="/profile">Update Info</Link>
+                    </div>
                 </div>
             </div>
 
         );
     }
+    /*
     const friend = this.props.infoBarData;
     const toggleInfoBar = this.props.toggleInfoBar;
-    this.getMutualFriends();
     var infoBarClass = this.props.infoBarIsOpen ? 'infoBar infoBarOpen' : 'infoBar';
     return (
-        <div className={infoBarClass + " row"}>
+        <div className={infoBarClass + " row hidden-md hidden-sm hidden-xs"}>
             <div className="col-sm-11">
                 <div className="row">
                     <i onClick={toggleInfoBar} className="infoBarX fa fa-times-circle" aria-hidden="true"></i>
@@ -71,13 +41,22 @@ render () {
                 </div>
                 <div className="infoBarMidDiv row">
                     <p className="infoBarInfo">
-                    <strong>I am...</strong>
-                    <small>{friend.question1}</small>
+                    <strong>I am...{friend.status}</strong>
+                    </p>
+                </div>
+                <div className="infoBarMidDiv row">
+                    <p className="infoBarInfo">
+                    {friend.location}
+                    <br/>
+                    -
+                    <br/>
+                    {friend.bio}
                     </p>
                 </div>
             </div>
         </div>
-    );
+    );*/
+    return (<div hidden="hidden"></div>);
 
     }
 }

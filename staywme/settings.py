@@ -33,7 +33,7 @@ DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 # Redirects all http requests to https !!! UNCOMMENT WHEN DEPLOYING
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 

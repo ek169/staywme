@@ -7,9 +7,11 @@ import Messenger from './Messenger';
 import Preview from './Preview';
 import Map from './Map';
 import Friends from './Friends';
-import InfoBar from './InfoBar'
-import { Link, Redirect, Route, Switch } from 'react-router-dom';
-
+import InfoBar from './InfoBar';
+import TopNav from './TopNav';
+import SideNav from './SideNav';
+import FriendProfile from './FriendProfile';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 
    window.fbAsyncInit = function() {
@@ -108,6 +110,7 @@ class Base extends Component {
         active_profile: 0,
         infoBarIsOpen: false,
         infoBarData: [],
+        event: [],
     };
   }
 
@@ -122,6 +125,10 @@ class Base extends Component {
     return true;
   }
 
+  updatedInfoData = (friend) => {
+    this.setState(updateInfoBarSource(friend));
+  }
+
   toggleInfoBar = () => {
     this.setState(updateInfoBar(this.state.infoBarIsOpen));
     return false;
@@ -132,14 +139,15 @@ class Base extends Component {
         this.toggleInfoBar();
     }
     this.setState(updateInfoBarSource(friend));
-    e.preventDefault();
+    return false;
   }
 
   checkLoginState () {
     let _this = this;
     FB.getLoginStatus(function(response) {
     if ((response.status === "connected") && (typeof _this.state.user.user_id === "undefined")) {
-        _this.logOrCreateUser();
+        const access_token = response.authResponse.accessToken;
+        _this.logOrCreateUser(access_token);
       }
     });
   }
@@ -151,13 +159,12 @@ class Base extends Component {
   }
 
   logOut () {
-    let _this = this;
     FB.logout(function(response) {
         window.location.reload();
     });
   }
 
-  logOrCreateUser () {
+  logOrCreateUser (access_token) {
     let _this = this;
     var csrftoken = getCookie('csrftoken');
     FB.api('/me?fields=id,name,email,picture', function(response) {
@@ -169,6 +176,7 @@ class Base extends Component {
             'picture_url': response.picture.data.url}), csrfmiddlewaretoken: csrftoken},
             dataType: 'json',
         }).done(function(msg) {
+            msg.msg['access_token'] = access_token
             _this.setState({
                 user: msg.msg,
             });
@@ -199,8 +207,16 @@ class Base extends Component {
         this.setState(updateMessage(state, e.target.value));
     }
 
+  messageChangeToEvent = (e, message) => {
+    const state = this.state;
+    let _this = this;
+    this.setState(updateMessage(state, message), function(e) { return _this.sendMessage(); });
+  }
+
   sendMessage = (e) => {
-        e.preventDefault();
+        if(e) {
+            e.preventDefault();
+        }
         var state = this.state;
         var csrftoken = getCookie('csrftoken');
         const receiver_id = this.state.friend_to_message;
@@ -257,7 +273,6 @@ class Base extends Component {
   }
 
  getFriends(response, user_data, csrftoken) {
-    var csrftoken = getCookie('csrftoken');
     const thisUserId = user_data.user_id;
     let _this = this;
     var friendsFromDB = [];
@@ -301,48 +316,50 @@ class Base extends Component {
     const friends = this.state.friends;
     const user = this.state.user;
     const friend_to_message = this.state.friend_to_message;
-    const pThis = this;
     return (
         <div>
-            <div id="nav" className="row">
-                <div id="midNav">
-                    <div id="innerNav">
+            <div id="nav" className="hidden-lg">
+                <div id="midNav" className="row col-md-12 col-sm-12 col-xs-12">
+                    <div className="row" id="innerNav">
                         {this.requireAuth() ?
-                        (<div><Link to="map" className="btn navItem">Map</Link>
-                        <Link to="messenger" className="btn navItem">Messenger</Link>
-                        <Link to="profile" className="btn navItem">Profile</Link></div>)
-                        : (<div><span id="logo">Stayw/me</span></div>)
+                        (
+                        <TopNav friends={this.state.friends} updatedInfoData={this.updatedInfoData} user={user}/>
+                        )
+                        : (<div hidden="hidden"></div>)
                         }
                     </div>
                 </div>
-                <div>
-                    {typeof this.state.user.user_id !== 'undefined' ? (<InfoBar infoBarIsOpen={this.state.infoBarIsOpen} toggleInfoBar={this.toggleInfoBar} uid={user.user_id} infoBarData={this.state.infoBarData} dataIsMissing={(user.email && user.location) ? false : true}/>) : ""}
-                </div>
             </div>
-            <div id="jumbotron" className='jumbotron'>
+            <div>
+                {this.requireAuth() ? (<InfoBar infoBarIsOpen={this.state.infoBarIsOpen} toggleInfoBar={this.toggleInfoBar} uid={user.user_id} infoBarData={this.state.infoBarData} dataIsMissing={(user.email && user.location) ? false : true}/>) : ""}
+            </div>
+            <div className="col-lg-3 hidden-md hidden-sm hidden-xs">
+                {this.requireAuth() ? (<SideNav friends={this.state.friends} updatedInfoData={this.updatedInfoData} user={user}/>) : <div hidden="hidden"></div>}
+            </div>
+            <div id={this.requireAuth() ? "jumbotron" : ""} className={this.requireAuth() ? 'jumbotron col-lg-9 col-md-12 col-sm-12 col-xs-12' : ""}>
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <Switch>
-                            <Route exact path="/" render={(props) => (<Redirect to="/preview"/>)} />
                             <Route path="/preview" render={(props) => ((this.requireAuth()) ? (<Redirect to="/profile"/>) : (<Preview {...props} logIn={this.logIn}  /> ))} />
                             <Route path="/map" render={(props) => ((this.requireAuth()) ? (<Map {...props} setActiveProfile={this.setActiveProfile}
                             changeInfoBarSource={this.changeInfoBarSource} friends={friends} /> )
                             : (<Redirect to="/preview"/>) )} />
                             <Route path="/profile" render={(props) => ((this.requireAuth()) ? (<Profile {...props} user={user} updateUser={this.updatedUser} logOut={this.logOut}/>)
                             : (<Redirect to="/preview" />)  )}/>
+                            <Route path="/friends" render={(props) => ((this.requireAuth()) ? (<FriendProfile setFriendToMessage={this.setFriendToMessage} friend={this.state.infoBarData} accessToken={this.state.user.access_token}/>) : (<Redirect to="/preview"/>) )} />
                             <Route path="/messenger" render={(props) => ((this.requireAuth()) ? (<Messenger {...props} pThis={this}
-                            message={this.state.message[this.state.message.length-1]} messageChange={this.messageChange}
-                            friend_to_message={friend_to_message} pThis={pThis} uid={user.user_id}
+                            message={this.state.message[this.state.message.length-1]} friendData={this.state.infoBarData} messageChangeToEvent={this.messageChangeToEvent} messageChange={this.messageChange}
+                            friend_to_message={friend_to_message} uid={user.user_id}
                             setFriendToMessage={this.setFriendToMessage} sendMessage={this.sendMessage} friends={friends} /> )
                             : (<Redirect to="/preview"/>))} />
+                            <Route exact path="/" render={(props) => (<Redirect to="/preview"/>)} />
                         </Switch>
                     </div>
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-12 col-sm-12">
-                    <Friends uid={user.user_id} friends={friends} activeProfile={this.state.active_profile} changeInfoBarSource={this.changeInfoBarSource} setActiveProfile={this.setActiveProfile} setFriendToMessage={this.setFriendToMessage}/>
-                </div>
+                <Friends uid={user.user_id} friends={friends} activeProfile={this.state.active_profile}
+                updatedInfoData={this.updatedInfoData} setActiveProfile={this.setActiveProfile} setFriendToMessage={this.setFriendToMessage}/>
             </div>
         </div>
         );

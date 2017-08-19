@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 class Friends extends Component {
 
-    onClick = (friendId, e) => {
-        e.preventDefault();
-        this.props.setFriendToMessage(friendId);
-        this.props.setActiveProfile(friendId);
+    onClick = (friend, e) => {
+        this.props.setFriendToMessage(friend.user_id);
+        this.props.setActiveProfile(friend.user_id);
+        this.props.updatedInfoData(friend);
     }
 
     render () {
@@ -29,17 +29,19 @@ class Friends extends Component {
             }
             const listOfFriends = otherFriendsArr.map((friend) =>
                <div className={(activeProfile === friend.user_id ? "activeFriend" : "") + " list-group-item row"} key={friend.email}>
-                  <div className="friendPicIcon col-md-3 col-sm-3">
+                  <div className="friendPicIcon col-md-3 col-sm-3 col-xs-3">
                       <img className="picSize img-circle" src={((r.test(friend.picture_url) ? (friend.picture_url) : (require("./images/globe.png"))))} alt={require("./images/globe.png")} />
                   </div>
-                  <div className="friendListItem col-md-3 col-sm-3 h4">
-                      <a onClick={this.props.changeInfoBarSource.bind(this, friend)}>{friend.name}</a>
+                  <div className="friendListItem col-md-3 col-sm-3 col-xs-3 h4">
+                    <Link to="/friends">
+                        <span onClick={this.props.updatedInfoData.bind(this, friend)}>{friend.name}</span>
+                    </Link>
                   </div>
-                  <div className="friendListItem col-md-3 col-sm-3 h5">
+                  <div className="friendListItem col-md-3 col-sm-3 col-xs-3 h5">
                       {friend.location}
                   </div>
-                  <div className="friendBtnMsg col-md-3 col-sm-3">
-                       <Link to="/messenger" onClick={this.onClick.bind(this, friend.user_id)}>
+                  <div className="friendBtnMsg col-md-3 col-sm-3 col-xs-3">
+                       <Link to="/messenger" onClick={this.onClick.bind(this, friend)}>
                             <button className="btn sendButton">
                                  Message
                             </button>
@@ -48,28 +50,31 @@ class Friends extends Component {
                </div>
             );
             return (
-                <div>
+                <div className="col-md-12 col-sm-12 col-xs-12" id="friendListMain">
                     {listOfFriends}
                 </div>
             );
         } else {
             return (
-                <div className="activeFriend list-group-item row">
-                  <div className="friendPicIcon col-md-3 col-sm-3">
-                      <img className="picSize img-circle" src={require("./images/globe.png")} />
-                  </div>
-                  <div className="friendListItem col-md-3 col-sm-3 h4">
-                      Your Friends...
-                  </div>
-                  <div className="friendListItem col-md-3 col-sm-3 h5">
-                      Are On The Way!
-                  </div>
-                  <div className="friendBtnMsg col-md-3 col-sm-3">
-                    <button className="btn sendButton">
-                        = )
-                    </button>
-                  </div>
-               </div>
+                <div hidden="hidden"></div>
+                /*<div className="col-md-12 col-sm-12 col-xs-12" id="friendListMain">
+                    <div className="activeFriend list-group-item row">
+                      <div className="friendPicIcon col-md-3 col-sm-3 col-xs-3">
+                          <img className="picSize img-circle" src={require("./images/globe.png")} />
+                      </div>
+                      <div className="friendListItem col-md-3 col-sm-3 col-xs-3 h4">
+                          Your Friends...
+                      </div>
+                      <div className="friendListItem col-md-3 col-sm-3 col-xs-3 h5">
+                          Are On The Way!
+                      </div>
+                      <div className="friendBtnMsg col-md-3 col-sm-3 col-xs-3">
+                        <button className="btn sendButton">
+                            = )
+                        </button>
+                      </div>
+                    </div>
+                </div>*/
             );
         }
     }

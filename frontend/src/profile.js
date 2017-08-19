@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import jQuery from 'jquery';
 import $ from 'jquery';
+import moment from 'moment/moment';
+import EditEvent from './EditEvent';
+import {Bio, Status, EditField, Event, Events } from './ProfileFields';
 
 function getCookie(name) {
     var cookieValue = null;
@@ -17,118 +20,92 @@ function getCookie(name) {
     return cookieValue;
 }
 
-class EditField extends Component {
-    constructor(props) {
-    super(props);
-    let fieldVal = this.props.val;
-    if (fieldVal === "") {
-        fieldVal = "";
-    }
-    this.state = {
-        editing: false,
-        val: fieldVal,
-    };
-  }
-
-   valChange = (e) => {
-        this.setState({
-            val: e.target.value,
-        })
-   }
-
-   saveProfileData (valName, val) {
-   var csrftoken = getCookie('csrftoken');
-    let _this = this;
-    $.ajax({
-        type: "POST",
-        url: 'api/profile/',
-        data: {data : JSON.stringify({"valName" : valName, "val": val, "id": _this.props.id}), csrfmiddlewaretoken: csrftoken},
-        dataType: 'json',
-        }).done(function(msg) {
-        }).fail(function(msg) {
-        });
-    }
-
-   OnClick = () => {
-        if (this.props.name === "email") {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (!re.test(this.state.val)) {
-            return <div>error</div>;
-            }
-        }
-        this.setState({
-          editing: !this.state.editing,
-        });
-        if (this.props.val !== this.state.val) {
-           this.saveProfileData(this.props.name, this.state.val);
-           this.props.updateUser();
-        }
-   }
-
-    render () {
-        if (this.state.editing) {
-            return (
-            <div className="col-md-9">
-                <div className="col-md-10">
-                    <input className="form-control" name={this.props.name} placeholder={this.props.placeholder} type={this.props.name === "email" ? "email" : "text"} onChange={this.valChange} defaultValue={this.state.val}/>
-                </div>
-                <div className="editProfileIcon col-md-2">
-                    <span onClick={this.OnClick.bind(this)} className="editProfileItemCheck glyphicon glyphicon-ok"></span>
-                </div>
-            </div>
-                );
-        } else {
-            return (
-            <div className="col-md-9">
-                <div className="col-md-10">
-                    <input className={(this.state.val === "" ? "warnField" : "") + " form-control"} defaultValue={this.state.val} readOnly/>
-                </div>
-                <div className="editProfileIcon col-md-2">
-                    <span onClick={this.OnClick.bind(this)} className="editProfileItemWheel glyphicon glyphicon-cog"></span>
-                </div>
-            </div>
-            );
-        }
-    }
+function toggleProfile(state){
+    return {showProfile: !state.showProfile};
 }
 
-
 class Profile extends Component {
+
+    constructor () {
+        super();
+        this.state = {
+            showProfile: false,
+            events: []
+        };
+    }
+
+    componentDidMount () {
+        this.getEvents();
+    }
+
+    toggleProfile = () => {
+        const state = this.state;
+        this.setState(toggleProfile(state));
+    }
+
+    getEvents = () => {
+        var csrftoken = getCookie('csrftoken');
+        let _this = this;
+        const userId = this.props.user.user_id;
+        $.ajax({
+            type: "GET",
+            url: 'api/event/',
+            data: {data : JSON.stringify({"userId" : userId}), csrfmiddlewaretoken: csrftoken},
+            dataType: 'json',
+        }).done(function(msg) {
+                _this.setState({events: msg.msg});
+        }).fail(function(msg) {
+        });
+  }
+
     render () {
         const user = this.props.user;
-        if (user.user_id) {
-            return (
-                <div id="profileArea" className="well">
-                    <div className="row">
-                        <div className="col-md-8 col-sm-8" key={user.email}>
-                            <div className="form-group row">
-                                <div className="form-group col-md-2">
-                                    <img className="img-circle" src={user.picture} alt={require("./images/globe.png")}/>
-                                </div>
-                                <div id="profileName" className="form-group col-md-8">
-                                    <span >{user.name}</span>
-                                </div>
-                            </div>
-                            <div className="form-group row">
-                                <label className="profileLabel col-md-3 col-form-label">Location</label>
+        const profileItems = (<div><div className="form-group row">
+                                <label className="profileLabel col-md-3 col-sm-3 col-xs-3 col-form-label">Location</label>
                                 <EditField name="location" updateUser={this.props.updateUser} val={user.location} placeholder="My location is..." id={user.user_id}/>
                             </div>
                             <div className="form-group row">
-                                <label className="profileLabel col-md-3 col-form-label">Email</label>
+                                <label className="profileLabel col-md-3 col-sm-3 col-xs-3 col-form-label">Email</label>
                                 <EditField name="email" updateUser={this.props.updateUser} val={user.email} placeholder="My email is..." id={user.user_id}/>
                             </div>
                             <div className="form-group row">
-                                <label className="profileLabel col-md-3 col-form-label">I am...</label>
-                                <EditField name='question1' updateUser={this.props.updateUser} placeholder="willing to host / traveling" val={user.question1} id={user.user_id} />
+                                <label className="profileLabel col-md-3 col-sm-3 col-xs-3 col-form-label">Currently</label>
+                                <Status updateUser={this.props.updateUser} name="status" placeholder="willing to host / traveling" val={user.status} id={user.user_id} />
+                            </div></div>);
+
+        if (user.user_id) {
+            return (
+                <div id="profileArea" className="well col-md-12 col-sm-12 col-xs-12">
+                    <div className="row">
+                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12" key={user.email}>
+                            <div className="form-group row">
+                                <div className="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <img className="img-circle" src={user.picture} alt={require("./images/globe.png")}/>
+                                </div>
+                                <div id="profileName" className="form-group col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <span>{user.name}</span>
+                                    {this.state.showProfile ?
+                                    <img onClick={this.toggleProfile} className="profileCalendarIcon"
+                                    src={require("./images/calendarplus.png")} alt={require("./images/globe.png")}/>
+                                    :
+                                    <img onClick={this.toggleProfile} className="profileCalendarIcon"
+                                    src={require("./images/calendarminus.png")} alt={require("./images/globe.png")}/>
+                                    }
+                                </div>
                             </div>
+                            {this.state.showProfile ? profileItems : <Events getEvent={this.getEvents} userId={user.user_id} events={this.state.events}/>}
                             <div className="form-group row">
                                 <button onClick={this.props.logOut.bind(this)} className="sendButton"><i className="fa fa-facebook left fbSizeSM"></i> Log Out</button>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-4">
+                        <div className="col-lg-4 col-md-4 col-sm-4 hidden-xs">
                             <div id="announcementOnProfile">
-                                <div className="h4"> Hey There! </div>
-                                <small>Want any new features? Let us know @ dev.staywme@gmail.com</small>
+                                <small>Message us @ dev.staywme@gmail.com</small>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-12 col-md-12 col-sm-12">
+                                    <Bio name="bio" updateUser={this.props.updateUser} val={user.bio} placeholder="If someone is crashing for just one night..what would the ideal plan be?" id={user.user_id}/>
+                                </div>
                             </div>
                         </div>
                     </div>

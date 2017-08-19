@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import uuid
 from django.db import models
-
 
 
 class User(models.Model):
@@ -11,7 +9,9 @@ class User(models.Model):
     name = models.CharField(max_length=32)
     email = models.EmailField(null=True)
     location = models.CharField(null=True, max_length=32)
-    question1 = models.CharField(null=True, max_length=32)
+    status = models.CharField(max_length=16, default="connecting")
+    top_activity = models.CharField(null=True, max_length=32)
+    bio = models.CharField(null=True, max_length=128)
     picture_url = models.CharField(null=True, max_length=175)
     latitude = models.DecimalField(max_digits=10, decimal_places=8)
     longitude = models.DecimalField(max_digits=10, decimal_places=8)
@@ -25,10 +25,20 @@ class User(models.Model):
             email=self.email,
             location=self.location,
             picture=self.picture_url,
-            question1=self.question1,
+            status=self.status,
+            top_activity=self.top_activity,
+            bio=self.bio,
             user_id=self.user_id,
             latitude=self.latitude,
             longitude=self.longitude,
+        )
+        return user_info
+
+    def simple_json(self):
+        user_info = dict(
+            name=self.name,
+            user_id=self.user_id,
+            picture=self.picture_url,
         )
         return user_info
 
@@ -54,7 +64,9 @@ class Friends(models.Model):
                 email=f.email,
                 location=f.location,
                 picture_url=f.picture_url,
-                question1=f.question1,
+                status=f.status,
+                top_activity=f.top_activity,
+                bio=f.bio,
                 latitude=f.latitude,
                 longitude=f.longitude,
             ))
@@ -81,7 +93,30 @@ class Message(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def as_json(self):
-        return dict(sender=self.sender, message=self.message, created=self.created)
+        return dict(sender=self.sender, message=self.message,
+                    created=self.created)
+
+
+class Event(models.Model):
+    objs = models.Manager()
+    chat_id = models.CharField(max_length=32)
+    start_date = models.DateField(null=False)
+    end_date = models.DateField(null=False)
+    user_one = models.ForeignKey(User, related_name='participant1')
+    user_two = models.ForeignKey(User, related_name='participant2')
+    response = models.NullBooleanField(null=True)
+    creator_id = models.BigIntegerField()
+
+
+    def as_json(self):
+        return dict(chat_id=self.chat_id, start_date=self.start_date, end_date=self.end_date,
+                    user_one=self.user_one, user_two=self.user_two)
+
+class Comment(models.Model):
+    objs = models.Manager()
+    Event = models.ForeignKey(Event, related_name="event")
+    author = models.ForeignKey(User, related_name="author")
+    comment = models.CharField(max_length=140)
 
 
 

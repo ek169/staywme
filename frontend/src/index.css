@@ -1,4 +1,13 @@
+/* for container readjustment */
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
+
+
 /* Styling For Map.js */
+
 
 #map {
     height: 320px;
@@ -12,8 +21,42 @@
     font-size: 20px;
 }
 
+.fbSizeMd {
+    font-size: 18px;
+    padding-right: 7px;
+}
+
 .fbSizeSM {
     font-size: 15px;
+}
+
+.friendProfileMessageBtn {
+    margin-top: 10px;
+}
+
+.requestCalendar {
+    margin: 10px;
+    height: 25px;
+    width: 25px;
+}
+
+.requestLabel {
+    padding-right: 8px;
+    margin-bottom: 0px;
+    padding-bottom:0px;
+}
+
+
+.requestCalendar:hover {
+    color: #3A66A7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.requestCalendarDiv {
+    float:right;
+    width: 30%;
+    vertical-align: middle;
 }
 
 .sendButton {
@@ -54,11 +97,29 @@
 /* Styling For Messenger.js */
 
 #chatList {
+    margin-top: 5px;
     float:right;
     position: relative;
     height: 350px;
+    overflow-x: hidden;
     overflow-y:auto;
-    max-width: 300px;
+    padding: 3px;
+}
+
+.messageDate {
+    display: none;
+    font-size: 9px;
+}
+
+.messageInfoHover {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+.messageInfoHover:hover .messageDate {
+    display: block;
 }
 
 #chatListArea {
@@ -67,20 +128,41 @@
     height: 315px;
 }
 
+.chatFriendPicSmall {
+    margin-top: 2px;
+    height: 40px;
+    width: 40px;
+    margin-bottom: 2px;
+    margin-right: 8px;
+}
+
+#chatFriendInfo {
+    padding-top: 0px;
+    margin-top: 0px;
+    border-bottom: 1px solid #efefef;
+    font-size: 14px;
+    float: left;
+    width:60%;
+}
+
 #messenger {
     position: relative;
     bottom: 0px;
     float:left;
-    max-width: 300px;
 }
 
 #messageList {
     float: left;
-    height: 240px;
+    height: 230px;
     overflow-y: scroll;
     position: relative;
-    width: 300px;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: 0px;
     background: white;
+    border: none;
+    border-color: transparent;
 }
 
 .chatPreview:hover {
@@ -90,22 +172,25 @@
 }
 
 #messageArea {
-    padding: 3px;
-    height: 350px;
+    max-height: 330px;
     overflow-x: hidden;
-    max-width: 300px;
+    width: 100%;
+    background-color: white;
+    padding: 0px;
 }
 
 .newMessageIcon {
+    margin-top: 9px;
     float: left;
 }
 
 #messengerContainer {
-    height: 360px;
+    max-height: 360px;
+    max-width: 800px;
 }
 
 .message {
-    padding-top: 5px;
+    padding-top: 3px;
     padding-bottom: 5px;
 }
 
@@ -117,7 +202,8 @@
   border-top-left-radius: 7px;
   padding-right: 4px;
   padding-left: 2px;
-  margin-right: 20px;
+  margin-right: 40px;
+  margin-left: 6px;
   margin-bottom: 5px;
   clear: both;
 }
@@ -131,7 +217,8 @@
   border-top-right-radius: 7px;
   padding-left: 4px;
   padding-right: 2px;
-  margin-left: 20px;
+  margin-left: 40px;
+  margin-right: 6px;
   margin-bottom: 5px;
   clear: both;
 }
@@ -140,6 +227,41 @@
     clear: both;
 }
 
+/* EventCreator.js */
+
+.createEventDiv {
+    padding-left: 40px;
+}
+
+.eventRequestDiv {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    height: 70%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.eventMessageText {
+    margin: 16px;
+    size: 13px;
+}
+
+#eventMessageDate {
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 12px;
+}
+
+.error {
+    color: red;
+    margin-top: 15px;
+}
+
+.eventDivTitle {
+    color: white;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
 
 /* Styling For Profile.js */
 
@@ -162,6 +284,22 @@
     padding-top: 7px;
 }
 
+.profileCalendarIcon {
+    margin-left: 14px;
+    height: 25px;
+    width: 25px;
+}
+
+.profileCalendarIcon:hover {
+    color: #3A66A7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.bioLabel {
+    padding-right: 6px;
+}
+
 #announcementOnProfile {
     color: black;
     text-align: center;
@@ -179,6 +317,12 @@
     color: #3b5998;
 }
 
+.eventFriendPic {
+    margin-top: 3px;
+    height: 30px;
+    width: 30px;
+}
+
 .editProfileItemCheck:hover {
     cursor: pointer;
     cursor: hand;
@@ -189,6 +333,122 @@
     border: solid 5px #ffb2b2;
 }
 
+#eventsList {
+    max-height: 150px;
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.outerEventDiv {
+    margin: 8px;
+}
+
+.acceptRequest {
+    border: 1px solid;
+    color: #00b200;
+}
+
+.acceptRequest:hover {
+    color: #00e500;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.rejectRequest {
+    border: 1px solid;
+    color: #cc0000;
+    margin-left: 3px;
+    margin-right: 1px;
+}
+
+.rejectRequest:hover {
+    color: #ff0000;
+    cursor: pointer;
+    cursor: hand;
+}
+
+/* Styling for FriendProfile.js */
+
+#friendProfileArea {
+    background: white;
+    overflow-y: auto;
+    max-height: 340px;
+    padding-left: 30px;
+}
+
+.locationProfileDiv {
+    padding-bottom: 8px;
+}
+
+.friendStatusTxt {
+    padding-left: 3px;
+    font-size: 9px;
+    vertical-align: middle;
+}
+
+/* EditEvent.js */
+
+.dateDisplay:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #3b5998;
+}
+
+.dateDisplay {
+    font-size: 13px;
+}
+
+.DatePicker {
+    position: static;
+}
+
+.datePickText {
+    font-size: 13px;
+    margin: auto;
+
+}
+
+.editEventBtn {
+    margin-top: 20px;
+}
+
+.eventEditDiv {
+    width: 50%;
+    margin-right: 0px;
+    margin-left: 30px;
+}
+
+.noResponse {
+    background-color: #ffffcc;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.acceptedInvite {
+    background-color: #cbfdcb;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.rejectedInvite {
+    background-color: #ff9999;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.upcomingRequests {
+    padding-top: 12px;
+}
+
+.noNewRequests {
+    margin-bottom: 20px;
+    margin: auto;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 5px;
+    width: 50%;
+}
 
 /* Styling For Friends.js */
 
@@ -211,7 +471,7 @@
 }
 
 
-/* General Settings For JavascriptSDK.js */
+/* General Settings For Main.js */
 
 body {
   margin: 0;
@@ -220,8 +480,8 @@ body {
 }
 
 html, body {
-  height: 700px;
-  width: 1000px;
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 
@@ -244,28 +504,97 @@ html, body {
     background-color: #efefef;
     border-radius: 5px;
     margin: 0px;
+
 }
 
 #innerNav {
-    margin: 0 auto;
     display: inline-block;
+    height: 100%;
     vertical-align: middle;
-    padding: 5px;
+    float: left;
+    width: 100%
+}
 
+#navBarLogo {
+    height: 45px;
+    width: 40px;
+}
+
+#sideNavBarLogo {
+    height: 80px;
+    width: 80px;
+    align: center;
+}
+
+.sideNavLogoDiv {
+    text-align: center;
+}
+
+.navBarProfilePic {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
 
 }
 
 .navItem {
     font-size: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
+    color: #3b5998;
 }
 
+.navItem:hover {
+    color: #3A66A7;
+    background-color: #e0e0e0;
+    text-decoration:none;
+}
+
+.searchBarDiv {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.sideNavBar {
+    margin-top: 10px;
+    background-color: #efefef;
+    border-radius: 5px;
+    padding: auto;
+    padding-bottom: 10px;
+}
+
+.navDiv {
+    line-height: 45px;
+    display: block;
+    margin: auto;
+}
+
+.navDiv:hover {
+    background-color: #e0e0e0;
+}
+
+.sideNavDiv {
+    clear: both;
+    line-height: 55px;
+    margin: 0px;
+    text-align: center;
+    display: block;
+    padding: 0px;
+    height: 100%;
+}
+
+.sideNavDiv:hover {
+    background-color: #e0e0e0;
+}
 
 #jumbotron {
     background-color: #efefef;
-    height: 375px;
+    max-height: 385px;
+    height: 100%;
+    margin-top: 10px;
     padding-top: 25px;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 
@@ -273,11 +602,15 @@ html, body {
     color: #efefef;
     position: absolute;
     top: 250px;
-    left: 140px;
+    left: 130px;
     float: left;
     font-size: 40px;
     font-family: arial;
 
+}
+
+.line {
+    background: linear-gradient(45deg, transparent, transparent 49%, red 49%, transparent 51%);
 }
 
 .rotate {
@@ -293,28 +626,347 @@ html, body {
     width: 50px;
 }
 
-
-/* For Preview.js */
-
-#frontPageDiv {
-    padding-top: 8px;
-    text-align: center;
-    height: 250px;
+#friendListMain {
+    max-height: 250px;
+    width: 100%;
+    overflow-y: auto;
 }
 
-#frontPageImg {
+
+/* For Preview.js */
+@media(min-width: 0px) {
+    #mainDiv {
+        background-image: url("./images/landImg3.jpeg");
+    }
+    .goBtn {
+        width: 100%;
+    }
+    #secondaryDiv {
+        background-image: url("./images/friends.jpeg");
+    }
+    .middleItemDiv {
+        border-left: solid 4px white;
+        padding: 17px;
+    }
+}
+
+@media (min-width: 660px) {
+    #mainDiv {
+        background-image: url("./images/landImg3.jpeg");
+    }
+    .goBtn {
+        width: 90%;
+    }
+    #secondaryDiv {
+        background-image: url("./images/friends.jpeg");
+    }
+    .middleItemDiv {
+        border-left: solid 4px white;
+        border-right: solid 4px white;
+        padding: 30px;
+    }
+}
+
+@media (min-width: 1200px ) {
+    #mainDiv {
+        background-image: url("./images/landImg6.jpeg");
+    }
+    #secondaryDiv {
+        background-image: url("./images/friends.jpeg");
+    }
+    .goBtn {
+        width: 80%;
+    }
+}
+
+
+
+
+.pNavItem {
+    float: right;
+    font-size: 20px;
+    color: #3b5998;
+
+}
+
+.pNavItem:hover {
+    color: #3A66A7;
+    background-color: #e0e0e0;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+
+.pNavDiv {
+    line-height: 55px;
     display: block;
     margin: auto;
-    width: 520px;
-    height: 250px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#mainDiv {
+    position: static;
+    text-align: center;
+    height: 480px;
+    margin: auto;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+#landImg {
+    margin: auto;
+    position: static;
+    height: 100%;
+    width: 100%;
+}
+
+#landImgTxt {
+    margin-top: 60px;
+    font-size: 25px;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: #36454f;
+    opacity: 0.3;
+}
+
+#landImgTxtBorder {
+    border-bottom: 1px solid #36454f;
+    width: 380px;
+    align: center;
+    display: block;
+    margin: auto;
+    opacity: 0.7;
+}
+
+.pNavDiv:hover {
+    background-color: #e0e0e0;
+}
+
+.frontPageText {
+    margin-top: 50px;
+}
+
+#frontPageDiv {
+    border-top: solid 4px white;
+    text-align: center;
+    max-height: 300px;
+    border-bottom: solid 4px white;
+}
+
+.frontPageImgR {
+    margin: auto;
+    max-width: 500px;
+    position: static;
+    float:right;
+    margin-top: 20px;
+    max-height: 300px;
+    padding-bottom: 20px;
+}
+
+.frontPageImgL {
+    margin: auto;
+    max-width: 500px;
+    position: static;
+    float:left;
+    margin-top: 20px;
+    max-height: 300px;
+    padding-bottom: 20px;
 }
 
 #fbLoginDiv {
-    padding-top: 20px;
+    float:right;
+    margin-top: 7px;
 }
 
+#previewNavDiv {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 55px;
+    width: 100%;
+    border-bottom: solid 1px white;
+    background-color: #efefef;
+    z-index: 1;
+}
+
+#previewLogo {
+    height: 100px;
+    width: 100px;
+}
+
+#previewContainer {
+    margin-top: 10px;
+    background: #efefef;
+}
+
+#newDiv {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#whatsNewTitle {
+    font-size: 36px;
+
+}
+
+#whatsNew {
+    font-size: 24px;
+    padding-top: 10px;
+}
+
+.goBtn {
+    background-color: #36454f;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: white;
+    padding: 10px;
+    font-size: 35px;
+    border-radius: 7px;
+    border: 1px solid;
+    border-color: #35518d;
+    opacity: 0.4;
+    margin-top: 130px;
+}
+
+.goBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.goSize {
+    font-size: 30px;
+}
+
+#shareDiv {
+    margin-top: 150px;
+    align: left;
+}
+
+.fbShareBtn {
+    align: left;
+    background-color: #3b5998;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 7px;
+    border: 1px solid;
+    border-color: #35518d;
+    margin-top: 140px;
+}
+
+.fbShareBtn:hover {
+    background-color: #3A66A7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.twitterShareBtn {
+    align: left;
+    background-color: #00aced;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 7px;
+    border: 1px solid;
+    border-color: #00aced;
+    margin-top: 140px;
+    margin-left: 10px;
+}
+
+.twitterShareBtn:hover {
+    background-color: #1dcaff;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.twitterLogo {
+    color: white;
+    font-size: 20px;
+    padding-right: 7px;
+}
+
+.infoIcon {
+    margin-bottom: 14px;
+    font-size: 30px;
+    color: #35518d;
+}
+
+.infoTxt {
+    margin-top: 8px;
+    font-size: 30px;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    vertical-align: center;
+}
+
+.infoItemDiv {
+    margin: auto;
+    padding: 30px;
+}
+
+.middleItemDiv {
+    margin: auto;
+}
+
+#secondaryDiv {
+    position: static;
+    text-align: center;
+    height: 440px;
+    margin: auto;
+    border-radius: 4px;
+    margin-top: 20px;
+    padding: auto;
+}
+
+#secondaryTxt {
+    padding-top: 30px;
+    font-size: 25px;
+    font-family: San Francisco, Segoe UI, Tahoma;
+    color: #fff;
+    opacity: 0.8;
+}
+
+#secondaryBottomTxt {
+    color: white;
+    position: relative;
+    margin-top: 275px;
+    margin-right: 380px;
+    opacity: 0.6;
+    font-size: 30px;
+}
+
+.downArrow {
+    color: white;
+    margin-left: 8px;
+}
 
 /* Styling For InfoBar.js */
+
+@media (min-width: 0px) {
+    .infoBar{
+        position: relative;
+        width: 99%;
+        height: 50px;
+        margin-left: 3px;
+        margin-top: 10px;
+        clear: both;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .infoBar{
+        text-align: center;
+        position: fixed;
+        right: -165px;
+        width: 150px;
+        height: 250px;
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+}
 
 .infoBar {
     border-left: 1px solid;
@@ -322,11 +974,6 @@ html, body {
     border-bottom: 1px solid;
     border-radius: 5px;
     border-color: #efefef;
-    text-align: center;
-    position: fixed;
-    right: -165px;
-    width: 165px;
-    height: 250px;
     transition: right .3s ease-in-out;
     background-color: #eef7fa;
 }
@@ -377,5 +1024,21 @@ html, body {
 
 .infoBarInfo {
     font-size: 12px;
+}
+
+/* FriendProfile.js */
+
+.profileBlockArea {
+    background: white;
+    overflow-y: hidden;
+    display: block;
+}
+
+#mutualFriendCount {
+    font-size: 10px;
+}
+
+.mutualFriendDiv {
+    display: inline;
 }
 
