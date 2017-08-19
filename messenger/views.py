@@ -5,11 +5,11 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
 from datetime import datetime
 from datetime import date
-from .utils import chatUtils, fb_api_calls, eventUtils
+from . utils import chatUtils, fb_api_calls, eventUtils
 import json
 from django.http import HttpResponse
 from django.http import JsonResponse
-from .models import User, Friends, Chat, Message, Event
+from . models import User, Friends, Chat, Message, Event
 from django.db.models import Q
 import logging
 from pygeocoder import Geocoder, GeocoderError
