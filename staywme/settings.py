@@ -27,7 +27,7 @@ SECRET_KEY = 'e42=cdgm&m-d3gw7(tb#yk62efs6-3fy_sqgw&ld_j0m=yy9mn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # !!! MAKE SURE TO SWITCH APP ID IN JAVASCRIPT SDK BEFORE DEPLOYING
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ["*"]
