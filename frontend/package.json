@@ -19,7 +19,7 @@
     "reactjs-mappletooltip": "^1.4.63"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7",
+    "react-scripts": "1.1.5",
     "webpack-bundle-tracker": "^0.2.0"
   },
   "scripts": {
